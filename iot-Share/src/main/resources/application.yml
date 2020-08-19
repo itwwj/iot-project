@@ -1,0 +1,7 @@
+server:
+  port: 9100
+emqx:
+  broker: tcp://127.0.0.1:1883 #broker地址
+  userName: root #授权账号 一定要授权的
+  password: root #密码
+  cleanSession: false #是否清除会话
