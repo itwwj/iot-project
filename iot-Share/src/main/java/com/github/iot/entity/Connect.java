@@ -3,10 +3,6 @@ package com.github.iot.entity;
 import lombok.Data;
 
 /**
- * 项目名称: iot
- * 类名称:Connect
- * 类描述:
- * <p>
  * <p> 设备上线
  * 邮箱:275236367@qq.com
  * 创建时间:  2020/1/4

@@ -35,7 +35,11 @@ public class EmqProperties {
      * 设置是否清空session,这里如果设置为false表示服务器会保留客户端的连接记录，这里设置为true表示每次连接到服务器都以新的身份连接
      */
     private Boolean cleanSession;
-    //这里我用本机ip作为clientId ，连接broker切记clientId不能重复
+
+    /**
+     * 这里我用本机ip作为clientId ，连接broker切记clientId不能重复
+     * @throws UnknownHostException
+     */
     public EmqProperties() throws UnknownHostException {
         this.clientId = InetAddress.getLocalHost().getHostAddress();
     }

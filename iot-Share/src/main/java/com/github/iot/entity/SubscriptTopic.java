@@ -12,10 +12,16 @@ import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SubscriptTopic {
-    //主题
+    /**
+     * 主题
+     */
     private String topic;
-    //消息等级
+    /**
+     * 消息等级
+     */
     private int qos;
-    //消费类
+    /**
+     * 消费类
+     */
     private IMqttMessageListener messageListener;
 }
