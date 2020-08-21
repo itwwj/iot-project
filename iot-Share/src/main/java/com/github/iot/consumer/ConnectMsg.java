@@ -19,6 +19,6 @@ public class ConnectMsg implements IMqttMessageListener {
         log.info("\r\n 收到主题 :\r\n" + topic + " 的消息:\r\n" + new String(message.getPayload()));
         Connect analysis = JSON.parseObject(new String(message.getPayload()), Connect.class);
         //接下来就是你自己的操作了
-        //.......
+        //TODO 业务操作
     }
 }

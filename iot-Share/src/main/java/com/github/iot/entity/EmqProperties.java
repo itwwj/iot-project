@@ -37,10 +37,10 @@ public class EmqProperties {
     private Boolean cleanSession;
 
     /**
-     * 这里我用本机ip作为clientId ，连接broker切记clientId不能重复
+     * 这里我用本机ip+当前系统毫秒值作为clientId ，连接broker切记clientId不能重复
      * @throws UnknownHostException
      */
     public EmqProperties() throws UnknownHostException {
-        this.clientId = InetAddress.getLocalHost().getHostAddress();
+        this.clientId = InetAddress.getLocalHost().getHostAddress()+"t"+System.currentTimeMillis();
     }
 }

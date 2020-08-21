@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * mqttclient 工具类
  * @author jie
  */
 @Slf4j

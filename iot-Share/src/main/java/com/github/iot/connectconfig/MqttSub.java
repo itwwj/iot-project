@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 连接 订阅类
  * @author jie
  */
 @Slf4j
