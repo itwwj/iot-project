@@ -11,6 +11,7 @@
     <modules>
         <module>iot-Share</module>
         <module>iot-TDengine-mybatis</module>
+        <module>iot-mongodb</module>
     </modules>
 
     <parent>
