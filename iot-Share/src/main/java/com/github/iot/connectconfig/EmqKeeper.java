@@ -28,7 +28,6 @@ public class EmqKeeper {
         options = new MqttConnectOptions();
         options.setUserName(emqProperties.getUserName());
         options.setPassword(emqProperties.getPassword().toCharArray());
-        options.setAutomaticReconnect(true);
         // 设置是否清空session,这里如果设置为false表示服务器会保留客户端的连接记录，这里设置为true表示每次连接到服务器都以新的身份连接
         options.setCleanSession(emqProperties.getCleanSession());
         //断线重连

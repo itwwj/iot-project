@@ -33,6 +33,7 @@ public class CallbackOrListener implements MqttCallback {
     @Override
     public void connectionLost(Throwable throwable) {
         log.info("EMQ连接断开....................................................");
+
     }
 
     /**
