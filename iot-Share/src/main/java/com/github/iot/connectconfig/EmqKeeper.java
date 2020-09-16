@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * mqttclient 工具类
+ *
  * @author jie
  */
 @Slf4j
@@ -51,7 +52,16 @@ public class EmqKeeper {
             if (!client.isConnected()) {
                 client.connect(options);
             }
-        } catch (MqttException e) {
+            if (client.isConnected()) {
+                log.info("===================开始订阅主题===================");
+                for (SubscriptTopic sub : topicMap) {
+                    subscript(sub.getTopic(), sub.getQos(), sub.getMessageListener());
+                    log.info("订阅主题:" + sub.getTopic());
+                }
+                log.info("=====================订阅结束=====================");
+                log.info("共订阅:   " + topicMap.size() + "   个主题!");
+            }
+        } catch (Exception e) {
             log.info("连接到emq失败;" + emqProperties.getBroker());
             e.printStackTrace();
         }

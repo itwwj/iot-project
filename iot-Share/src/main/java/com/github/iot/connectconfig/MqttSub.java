@@ -49,13 +49,5 @@ public class MqttSub implements CommandLineRunner {
         }
         //连接mqtt服务器
         emqKeeper.connetToServer(topicMap);
-
-        log.info("===================开始订阅主题===================");
-        for (SubscriptTopic sub : topicMap) {
-            emqKeeper.subscript(sub.getTopic(), sub.getQos(), sub.getMessageListener());
-            log.info("订阅主题:"+ sub.getTopic());
-        }
-        log.info("=====================订阅结束=====================");
-        log.info("共订阅:   "+topicMap.size()+"   个主题!");
     }
 }

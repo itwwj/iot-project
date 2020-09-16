@@ -1,6 +1,7 @@
 package com.github.iot.connectconfig;
 
 import com.github.iot.entity.SubscriptTopic;
+import com.github.iot.utils.ApplicationContextUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -33,7 +34,27 @@ public class CallbackOrListener implements MqttCallback {
     @Override
     public void connectionLost(Throwable throwable) {
         log.info("EMQ连接断开....................................................");
+        //尝试重新连接，
+        for (int i = 0; i < 10; i++) {
 
+            log.info("第 " + i + " 次尝试重新连接.");
+            EmqKeeper emqKeeper = ApplicationContextUtil.getBean(EmqKeeper.class);
+
+            if (!emqKeeper.getMqttClient().isConnected())
+            {
+                emqKeeper.connetToServer(topicMap);
+            }
+
+            if (emqKeeper.getMqttClient().isConnected())
+            {
+                break;
+            }
+            try {
+                Thread.sleep(10L * 1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
