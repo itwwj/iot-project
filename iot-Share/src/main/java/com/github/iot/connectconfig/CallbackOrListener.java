@@ -4,10 +4,7 @@ import com.github.iot.entity.SubscriptTopic;
 import com.github.iot.utils.ApplicationContextUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.MqttTopic;
+import org.eclipse.paho.client.mqttv3.*;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ import java.util.List;
  * @author jie
  */
 @Slf4j
-public class CallbackOrListener implements MqttCallback {
+public class CallbackOrListener implements MqttCallbackExtended {
 
 
     private List<SubscriptTopic> topicMap;
@@ -30,31 +27,9 @@ public class CallbackOrListener implements MqttCallback {
      *
      * @param throwable 异常
      */
-    @SneakyThrows
     @Override
     public void connectionLost(Throwable throwable) {
         log.info("EMQ连接断开....................................................");
-        //尝试重新连接，
-        for (int i = 0; i < 10; i++) {
-
-            log.info("第 " + i + " 次尝试重新连接.");
-            EmqKeeper emqKeeper = ApplicationContextUtil.getBean(EmqKeeper.class);
-
-            if (!emqKeeper.getMqttClient().isConnected())
-            {
-                emqKeeper.connetToServer(topicMap);
-            }
-
-            if (emqKeeper.getMqttClient().isConnected())
-            {
-                break;
-            }
-            try {
-                Thread.sleep(10L * 1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     /**
@@ -111,5 +86,25 @@ public class CallbackOrListener implements MqttCallback {
     @Override
     public void deliveryComplete(IMqttDeliveryToken token) {
         log.info("deliveryComplete---------" + token.isComplete());
+    }
+
+    /**
+     * 连接emq服务器后触发
+     * @param b
+     * @param s
+     */
+    @SneakyThrows
+    @Override
+    public void connectComplete(boolean b, String s) {
+        EmqKeeper emqKeeper = ApplicationContextUtil.getBean(EmqKeeper.class);
+        if (emqKeeper.getMqttClient().isConnected()) {
+            log.info("===================开始订阅主题===================");
+            for (SubscriptTopic sub : topicMap) {
+                emqKeeper.subscript(sub.getTopic(), sub.getQos(), sub.getMessageListener());
+                log.info("订阅主题:" + sub.getTopic());
+            }
+            log.info("=====================订阅结束=====================");
+            log.info("共订阅:   " + topicMap.size() + "   个主题!");
+        }
     }
 }

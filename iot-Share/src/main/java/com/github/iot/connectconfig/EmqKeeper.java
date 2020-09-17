@@ -37,7 +37,6 @@ public class EmqKeeper {
         options.setConnectionTimeout(20);
         // 设置会话心跳时间 单位为秒 服务器会每隔1.5*10秒的时间向客户端发送个消息判断客户端是否在线，但这个方法并没有重连的机制
         options.setKeepAliveInterval(10);
-        // options.setAutomaticReconnect();
     }
 
     /**
@@ -51,15 +50,6 @@ public class EmqKeeper {
             this.getMqttClient().setCallback(new CallbackOrListener(topicMap));
             if (!client.isConnected()) {
                 client.connect(options);
-            }
-            if (client.isConnected()) {
-                log.info("===================开始订阅主题===================");
-                for (SubscriptTopic sub : topicMap) {
-                    subscript(sub.getTopic(), sub.getQos(), sub.getMessageListener());
-                    log.info("订阅主题:" + sub.getTopic());
-                }
-                log.info("=====================订阅结束=====================");
-                log.info("共订阅:   " + topicMap.size() + "   个主题!");
             }
         } catch (Exception e) {
             log.info("连接到emq失败;" + emqProperties.getBroker());

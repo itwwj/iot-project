@@ -10,6 +10,7 @@ docker run -d --name emqx --restart=always  \
       -p 18083:18083 \
       -v `pwd`/conf/emqx_auth_mysql.conf:/opt/emqx/etc/plugins/emqx_auth_mysql.conf \
       -v `pwd`/conf/emqx.conf:/opt/emqx/etc/emqx.conf \
+      -v `pwd`/conf/acl.conf:/opt/emqx/etc/acl.conf \
       -v /etc/localtime:/etc/localtime \
       --privileged=true \
       emqx/emqx:v4.0.0
