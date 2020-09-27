@@ -35,6 +35,7 @@ public class EmqKeeper {
         options.setAutomaticReconnect(true);
         // 设置超时时间 单位为秒
         options.setConnectionTimeout(20);
+
         // 设置会话心跳时间 单位为秒 服务器会每隔1.5*10秒的时间向客户端发送个消息判断客户端是否在线，但这个方法并没有重连的机制
         options.setKeepAliveInterval(10);
     }
@@ -52,7 +53,7 @@ public class EmqKeeper {
                 client.connect(options);
             }
         } catch (Exception e) {
-            log.info("连接到emq失败;" + emqProperties.getBroker());
+            log.error("连接到emq失败;" + emqProperties.getBroker());
             e.printStackTrace();
         }
     }
