@@ -42,10 +42,10 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void messageArrived(String topic, MqttMessage message) {
         try {
             // subscribe后得到的消息会执行到这里面
-            log.info("message id             : " + message.getId());
-            log.info("message topic          : " + topic);
-            log.info("message Qos            : " + message.getQos());
-            log.info("message Payload        : " + new String(message.getPayload()));
+//            log.info("message id             : " + message.getId());
+//            log.info("message topic          : " + topic);
+//            log.info("message Qos            : " + message.getQos());
+//            log.info("message Payload        : " + new String(message.getPayload()));
 
             for (SubscriptTopic subscriptTopic : topicMap) {
                 if (isMatched(subscriptTopic.getTopic(), topic)) {
