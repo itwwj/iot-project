@@ -1,30 +1,50 @@
 package com.github.iot.connectconfig;
 
+import com.github.iot.annotation.MyTopicMap;
 import com.github.iot.entity.EmqProperties;
 import com.github.iot.entity.SubscriptTopic;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 
+import java.net.Inet4Address;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * mqttclient 工具类
  *
  * @author jie
  */
+@Data
 @Slf4j
 @Component
-public class EmqKeeper {
-    private MqttClient client;
-    private MqttConnectOptions options;
+public class EmqKeeper implements CommandLineRunner {
+
+    @Value("${server.port}")
+    private int port;
+
+    @Autowired
     private EmqProperties emqProperties;
 
-    public EmqKeeper(EmqProperties emqProperties) throws Exception {
-        this.emqProperties = emqProperties;
-        // host为主机名，clientid即连接MQTT的客户端ID，一般以唯一标识符表示，MemoryPersistence设置clientid的保存形式，默认为以内存保存
-        client = new MqttClient(emqProperties.getBroker(), emqProperties.getClientId(), new MemoryPersistence());
+    @Autowired
+    private ApplicationContext applicationContext;
+
+    private MqttClient client;
+    MqttConnectOptions options;
+
+    private List<SubscriptTopic> topicMap = new ArrayList<SubscriptTopic>();
+    @Override
+    public void run(String... args) throws Exception {
+        client = new MqttClient(emqProperties.getBroker(), Inet4Address.getLocalHost().getHostAddress() + ":" + port, new MemoryPersistence());
         // MQTT的连接设置
         options = new MqttConnectOptions();
         options.setUserName(emqProperties.getUserName());
@@ -35,36 +55,38 @@ public class EmqKeeper {
         options.setAutomaticReconnect(true);
         // 设置超时时间 单位为秒
         options.setConnectionTimeout(20);
-
         // 设置会话心跳时间 单位为秒 服务器会每隔1.5*10秒的时间向客户端发送个消息判断客户端是否在线，但这个方法并没有重连的机制
         options.setKeepAliveInterval(10);
+
+        //得到所有使用MyTopicMap注解的类
+        Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(MyTopicMap.class);
+        for (String className : beansWithAnnotation.keySet()) {
+            Class<?> classByteCode = beansWithAnnotation.get(className).getClass();
+            //获取类的注解属性
+            MyTopicMap annotation = AnnotationUtils.findAnnotation(classByteCode, MyTopicMap.class);
+            String topic = annotation.topic();
+            int qos = annotation.qos();
+            topicMap.add(new SubscriptTopic(topic, qos, (IMqttMessageListener) applicationContext.getBean(classByteCode)));
+        }
+
+        this.client.setCallback(new CallbackOrListener(topicMap));
+        connetToServer();
     }
 
     /**
      * 客户端连接服务端
      *
-     * @param topicMap 订阅主题和消费类集合
      */
-    public void connetToServer(List<SubscriptTopic> topicMap) {
+    public void connetToServer() throws Exception {
+
         try {
-            // 设置回调
-            this.getMqttClient().setCallback(new CallbackOrListener(topicMap));
             if (!client.isConnected()) {
                 client.connect(options);
             }
         } catch (Exception e) {
             log.error("连接到emq失败;" + emqProperties.getBroker());
-            e.printStackTrace();
+            log.error(e.toString());
         }
-    }
-
-    /**
-     * 获取客户端
-     *
-     * @return 客户端
-     */
-    public MqttClient getMqttClient() {
-        return client;
     }
 
     /**
@@ -76,7 +98,7 @@ public class EmqKeeper {
      * @throws Exception 异常
      */
     public void subscript(String topic, int qos, IMqttMessageListener messageListener) throws Exception {
-        getMqttClient().subscribe(topic, qos, messageListener);
+        client.subscribe(topic, qos, messageListener);
     }
 
     /**
@@ -90,7 +112,7 @@ public class EmqKeeper {
         MqttMessage mqttMessage = new MqttMessage();
         mqttMessage.setQos(qos);
         mqttMessage.setPayload(msg.getBytes());
-        MqttTopic mqttTopic = getMqttClient().getTopic(topic);
+        MqttTopic mqttTopic = client.getTopic(topic);
         MqttDeliveryToken token = mqttTopic.publish(mqttMessage);
         token.waitForCompletion();
     }

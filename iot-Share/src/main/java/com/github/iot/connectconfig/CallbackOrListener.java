@@ -27,9 +27,19 @@ public class CallbackOrListener implements MqttCallbackExtended {
      *
      * @param throwable 异常
      */
+    @SneakyThrows
     @Override
     public void connectionLost(Throwable throwable) {
         log.info("EMQ连接断开....................................................");
+        EmqKeeper bean = ApplicationContextUtil.getBean(EmqKeeper.class);
+        while (true){
+            log.info("emqx重新连接。。。。");
+            bean.connetToServer();
+            if (bean.getClient().isConnected()){
+                break;
+            }
+            Thread.sleep(10000);
+        }
     }
 
     /**
@@ -42,10 +52,10 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void messageArrived(String topic, MqttMessage message) {
         try {
             // subscribe后得到的消息会执行到这里面
-//            log.info("message id             : " + message.getId());
-//            log.info("message topic          : " + topic);
-//            log.info("message Qos            : " + message.getQos());
-//            log.info("message Payload        : " + new String(message.getPayload()));
+            log.info("message id             : " + message.getId());
+            log.info("message topic          : " + topic);
+            log.info("message Qos            : " + message.getQos());
+            log.info("message Payload        : " + new String(message.getPayload()));
 
             for (SubscriptTopic subscriptTopic : topicMap) {
                 if (isMatched(subscriptTopic.getTopic(), topic)) {
@@ -97,7 +107,7 @@ public class CallbackOrListener implements MqttCallbackExtended {
     @Override
     public void connectComplete(boolean b, String s) {
         EmqKeeper emqKeeper = ApplicationContextUtil.getBean(EmqKeeper.class);
-        if (emqKeeper.getMqttClient().isConnected()) {
+        if (emqKeeper.getClient().isConnected()) {
             log.info("===================开始订阅主题===================");
             for (SubscriptTopic sub : topicMap) {
                 emqKeeper.subscript(sub.getTopic(), sub.getQos(), sub.getMessageListener());

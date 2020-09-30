@@ -4,8 +4,6 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 /**
  * 配置类
@@ -20,10 +18,6 @@ public class EmqProperties {
      */
     private String broker;
     /**
-     * 客户端id
-     */
-    private String clientId;
-    /**
      * 用户名
      */
     private String userName;
@@ -36,11 +30,4 @@ public class EmqProperties {
      */
     private Boolean cleanSession;
 
-    /**
-     * 这里我用本机ip+当前系统毫秒值作为clientId ，连接broker切记clientId不能重复
-     * @throws UnknownHostException
-     */
-    public EmqProperties() throws UnknownHostException {
-        this.clientId = InetAddress.getLocalHost().getHostAddress()+"t"+System.currentTimeMillis();
-    }
 }
