@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.taosdata.jdbc.TSDBDriver
-    url: jdbc:TAOS://192.168.1.177:6030/test
+    url: jdbc:TAOS://127.0.0.1:6030/test?cfgdir=C:/TDengine/cfg
     username: root
     password: taosdata
     druid:
