@@ -12,7 +12,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  */
 @Slf4j
 @MyTopicMap(topic = "$share/group1/$SYS/brokers/+/clients/+/disconnected", qos = 0)
-public class disConnectMsg implements IMqttMessageListener {
+public class DisConnectMsg implements IMqttMessageListener {
 
     @Override
     public void messageArrived(String topic, MqttMessage message) throws Exception {

@@ -1,6 +1,6 @@
 #!/bin/bash
 cur_dir=`pwd`
-
+mkdir `pwd`/data
 docker stop mongodb
 docker rm mongodb
 docker run --restart=always --name mongodb \
