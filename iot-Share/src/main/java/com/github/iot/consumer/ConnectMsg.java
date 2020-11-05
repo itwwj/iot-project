@@ -1,7 +1,7 @@
 package com.github.iot.consumer;
 
 import com.alibaba.fastjson.JSON;
-import com.github.iot.annotation.MyTopicMap;
+import com.github.iot.annotation.Topic;
 import com.github.iot.entity.Connect;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
@@ -11,7 +11,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  * @author jie
  */
 @Slf4j
-@MyTopicMap(topic = "$share/group1/$SYS/brokers/+/clients/+/connected", qos = 0)
+@Topic(topic = "$SYS/brokers/+/clients/+/connected", qos = 0)
 public class ConnectMsg implements IMqttMessageListener {
 
     @Override

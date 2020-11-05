@@ -1,6 +1,9 @@
 package com;
 
 
+import cn.hutool.core.codec.Base64;
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +41,11 @@ public class Jtest {
         }
         return list;
     }
+@Test
+    public void test(){
+    String encode = Base64.encode("0000", "utf8");
+    System.out.println(encode);
 
+}
 
 }

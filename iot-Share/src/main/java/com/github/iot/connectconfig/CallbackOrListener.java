@@ -1,5 +1,6 @@
 package com.github.iot.connectconfig;
 
+import com.github.iot.entity.Pattern;
 import com.github.iot.entity.SubscriptTopic;
 import com.github.iot.utils.ApplicationContextUtil;
 import lombok.SneakyThrows;
@@ -52,7 +53,7 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void messageArrived(String topic, MqttMessage message) {
         try {
             for (SubscriptTopic subscriptTopic : topicMap) {
-                if (isMatched(subscriptTopic.getTopic(), topic)) {
+                if (subscriptTopic.getPattern()!= Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
                     subscriptTopic.getMessageListener().messageArrived(topic, message);
                     break;
                 }

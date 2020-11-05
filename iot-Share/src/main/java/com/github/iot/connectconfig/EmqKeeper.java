@@ -1,6 +1,7 @@
 package com.github.iot.connectconfig;
 
-import com.github.iot.annotation.MyTopicMap;
+import com.github.iot.annotation.Topic;
+import com.github.iot.entity.Pattern;
 import com.github.iot.entity.EmqProperties;
 import com.github.iot.entity.SubscriptTopic;
 import lombok.Data;
@@ -59,14 +60,21 @@ public class EmqKeeper implements CommandLineRunner {
         options.setKeepAliveInterval(10);
 
         //得到所有使用MyTopicMap注解的类
-        Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(MyTopicMap.class);
+        Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(Topic.class);
         for (String className : beansWithAnnotation.keySet()) {
             Class<?> classByteCode = beansWithAnnotation.get(className).getClass();
             //获取类的注解属性
-            MyTopicMap annotation = AnnotationUtils.findAnnotation(classByteCode, MyTopicMap.class);
+            Topic annotation = AnnotationUtils.findAnnotation(classByteCode, Topic.class);
             String topic = annotation.topic();
             int qos = annotation.qos();
-            topicMap.add(new SubscriptTopic(topic, qos, (IMqttMessageListener) applicationContext.getBean(classByteCode)));
+            Pattern patten = annotation.patten();
+            String group = annotation.group();
+            if (patten==Pattern.SHARE){
+                topic="$share/"+group+"/"+topic;
+            }else if (patten==Pattern.QUEUE){
+                topic="$queue/"+topic;
+            }
+            topicMap.add(new SubscriptTopic(topic,patten, qos, (IMqttMessageListener) applicationContext.getBean(classByteCode)));
         }
 
         this.client.setCallback(new CallbackOrListener(topicMap));

@@ -17,6 +17,10 @@ public class SubscriptTopic {
      */
     private String topic;
     /**
+     * 订阅模式
+     */
+    private Pattern pattern;
+    /**
      * 消息等级
      */
     private int qos;
