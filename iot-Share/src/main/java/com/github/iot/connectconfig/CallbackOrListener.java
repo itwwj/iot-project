@@ -33,12 +33,9 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void connectionLost(Throwable throwable) {
         log.info("EMQ连接断开....................................................");
         EmqKeeper bean = ApplicationContextUtil.getBean(EmqKeeper.class);
-        while (true){
+        while (!bean.getClient().isConnected()){
             log.info("emqx重新连接。。。。");
             bean.connetToServer();
-            if (bean.getClient().isConnected()){
-                break;
-            }
             Thread.sleep(10000);
         }
     }
@@ -53,7 +50,7 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void messageArrived(String topic, MqttMessage message) {
         try {
             for (SubscriptTopic subscriptTopic : topicMap) {
-                if (subscriptTopic.getPattern()!= Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
+                if (subscriptTopic.getPattern()!= Pattern.NONE&&isMatched(subscriptTopic.getTopic(), topic)) {
                     subscriptTopic.getMessageListener().messageArrived(topic, message);
                     break;
                 }
@@ -72,14 +69,6 @@ public class CallbackOrListener implements MqttCallbackExtended {
      * @return 是否为通配符主题的子主题
      */
     private boolean isMatched(String topicFilter, String topic) {
-        //检测是否以指定前缀开始
-        if (topicFilter.startsWith("$queue/")) {
-            //替换前缀
-            topicFilter = topicFilter.replaceFirst("\\$queue/", "");
-        } else if (topicFilter.startsWith("$share/")) {
-            topicFilter = topicFilter.replaceFirst("\\$share/", "");
-            topicFilter = topicFilter.substring(topicFilter.indexOf('/') + 1);
-        }
         return MqttTopic.isMatched(topicFilter, topic);
     }
 
@@ -105,8 +94,8 @@ public class CallbackOrListener implements MqttCallbackExtended {
         if (emqKeeper.getClient().isConnected()) {
             log.info("===================开始订阅主题===================");
             for (SubscriptTopic sub : topicMap) {
-                emqKeeper.subscript(sub.getTopic(), sub.getQos(), sub.getMessageListener());
-                log.info("订阅主题:" + sub.getTopic());
+                emqKeeper.subscript(sub.getSubTopic(), sub.getQos(), sub.getMessageListener());
+                log.info("订阅主题:" + sub.getSubTopic());
             }
             log.info("=====================订阅结束=====================");
             log.info("共订阅:   " + topicMap.size() + "   个主题!");

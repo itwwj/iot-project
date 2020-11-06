@@ -10,7 +10,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  * @author jie
  */
 @Slf4j
-@Topic(topic = "device/+/test", qos = 0,patten = Pattern.SHARE)
+@Topic(topic = "device/+/test",patten = Pattern.SHARE)
 public class TestDevice implements IMqttMessageListener {
 
     @Override

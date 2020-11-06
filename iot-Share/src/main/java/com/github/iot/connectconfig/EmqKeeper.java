@@ -59,7 +59,7 @@ public class EmqKeeper implements CommandLineRunner {
         // 设置会话心跳时间 单位为秒 服务器会每隔1.5*10秒的时间向客户端发送个消息判断客户端是否在线，但这个方法并没有重连的机制
         options.setKeepAliveInterval(10);
 
-        //得到所有使用MyTopicMap注解的类
+        //得到所有使用@Topic注解的类
         Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(Topic.class);
         for (String className : beansWithAnnotation.keySet()) {
             Class<?> classByteCode = beansWithAnnotation.get(className).getClass();
@@ -69,14 +69,14 @@ public class EmqKeeper implements CommandLineRunner {
             int qos = annotation.qos();
             Pattern patten = annotation.patten();
             String group = annotation.group();
+            String subTopic=topic;
             if (patten==Pattern.SHARE){
-                topic="$share/"+group+"/"+topic;
+                subTopic="$share/"+group+"/"+topic;
             }else if (patten==Pattern.QUEUE){
-                topic="$queue/"+topic;
+                subTopic="$queue/"+topic;
             }
-            topicMap.add(new SubscriptTopic(topic,patten, qos, (IMqttMessageListener) applicationContext.getBean(classByteCode)));
+            topicMap.add(new SubscriptTopic(topic,subTopic,patten, qos, (IMqttMessageListener) applicationContext.getBean(classByteCode)));
         }
-
         this.client.setCallback(new CallbackOrListener(topicMap));
         connetToServer();
     }

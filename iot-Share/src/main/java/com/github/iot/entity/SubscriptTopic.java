@@ -13,9 +13,13 @@ import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 @NoArgsConstructor
 public class SubscriptTopic {
     /**
-     * 主题
+     * 原主题
      */
     private String topic;
+    /**
+     * 订阅主题
+     */
+    private String subTopic;
     /**
      * 订阅模式
      */
@@ -28,4 +32,5 @@ public class SubscriptTopic {
      * 消费类
      */
     private IMqttMessageListener messageListener;
+
 }
