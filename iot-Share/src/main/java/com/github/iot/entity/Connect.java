@@ -1,6 +1,9 @@
 package com.github.iot.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * <p> 设备上线
@@ -9,6 +12,9 @@ import lombok.Data;
  * @author jie
  */
 @Data
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Connect {
     /**
      * 客户端id
@@ -27,19 +33,19 @@ public class Connect {
      */
     private int connack;
     /**
-     *
+     * 事件触发时间 (ms)
      */
     private long ts;
     /**
-     *
+     * 协议版本
      */
     private int proto_ver;
     /**
-     *
+     * 协议名字
      */
     private String proto_name;
     /**
-     *
+     * MQTT clean_start
      */
     private boolean clean_start;
     /**

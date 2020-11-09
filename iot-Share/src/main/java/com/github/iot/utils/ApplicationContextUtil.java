@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
  * <p>
  * <p>从容器中获取bean
  * 创建时间:  2020/1/3
+ * @author jie
  */
 @Component
 public class ApplicationContextUtil {
@@ -22,7 +23,7 @@ public class ApplicationContextUtil {
     private ApplicationContext applicationContext;
 
     @PostConstruct
-    public void ApplicationContextUtil() {
+    public void applicationContextUtil() {
         instance = this;
     }
 
@@ -44,7 +45,6 @@ public class ApplicationContextUtil {
      * @throws BeansException
      */
     public static <T> T getBean(String name) throws BeansException {
-        return (T)instance.applicationContext.getBean(name);
+        return (T) instance.applicationContext.getBean(name);
     }
-
 }

@@ -3,16 +3,16 @@ package com.github.iot.entity;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-
+import static com.github.iot.entity.EmqProperties.PREFIX;
 /**
  * 配置类
  * @author jie
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "emqx")
+@ConfigurationProperties(prefix = PREFIX)
 public class EmqProperties {
+    public static final String PREFIX="emqx";
     /**
      * emq服务器地址
      */

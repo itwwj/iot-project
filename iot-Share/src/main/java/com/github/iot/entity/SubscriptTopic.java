@@ -1,16 +1,16 @@
 package com.github.iot.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 
 /**
  * @author jie
  */
 @Data
-@AllArgsConstructor
+@Builder
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class SubscriptTopic {
     /**
      * 原主题

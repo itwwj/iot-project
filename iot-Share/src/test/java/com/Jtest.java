@@ -15,18 +15,18 @@ import java.util.Map;
 public class Jtest {
     public static void main(String[] args) {
 
-            long l = System.currentTimeMillis();
-            for (int i = 0; i < 1000000; i++) {
-                String a = i + "";
-            }
-            long l1 = System.currentTimeMillis();
-            System.out.println("1耗时：" + (l1 - l));
-            long l2 = System.currentTimeMillis();
-            for (int i = 0; i < 1000000; i++) {
-                String a = String.valueOf(i);
-            }
-            long l3 = System.currentTimeMillis();
-            System.out.println("2耗时：" + (l3 - l2));
+        long l = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            String a = i + "";
+        }
+        long l1 = System.currentTimeMillis();
+        System.out.println("1耗时：" + (l1 - l));
+        long l2 = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+            String a = String.valueOf(i);
+        }
+        long l3 = System.currentTimeMillis();
+        System.out.println("2耗时：" + (l3 - l2));
 
     }
 
@@ -41,11 +41,10 @@ public class Jtest {
         }
         return list;
     }
-@Test
-    public void test(){
-    String encode = Base64.encode("0000", "utf8");
-    System.out.println(encode);
 
-}
-
+    @Test
+    public void test() {
+        String encode = Base64.encode("0000", "utf8");
+        System.out.println(encode);
+    }
 }

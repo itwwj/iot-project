@@ -11,11 +11,11 @@ import java.util.List;
 
 /**
  * 回调类
+ *
  * @author jie
  */
 @Slf4j
 public class CallbackOrListener implements MqttCallbackExtended {
-
 
     private List<SubscriptTopic> topicMap;
 
@@ -33,7 +33,7 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void connectionLost(Throwable throwable) {
         log.info("EMQ连接断开....................................................");
         EmqKeeper bean = ApplicationContextUtil.getBean(EmqKeeper.class);
-        while (!bean.getClient().isConnected()){
+        while (!bean.getClient().isConnected()) {
             log.info("emqx重新连接。。。。");
             bean.connetToServer();
             Thread.sleep(10000);
@@ -50,7 +50,7 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public void messageArrived(String topic, MqttMessage message) {
         try {
             for (SubscriptTopic subscriptTopic : topicMap) {
-                if (subscriptTopic.getPattern()!= Pattern.NONE&&isMatched(subscriptTopic.getTopic(), topic)) {
+                if (subscriptTopic.getPattern() != Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
                     subscriptTopic.getMessageListener().messageArrived(topic, message);
                     break;
                 }
@@ -84,6 +84,7 @@ public class CallbackOrListener implements MqttCallbackExtended {
 
     /**
      * 连接emq服务器后触发
+     *
      * @param b
      * @param s
      */
