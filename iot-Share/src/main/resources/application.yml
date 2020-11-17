@@ -5,3 +5,6 @@ emqx:
   userName: root #授权账号 一定要授权的
   password: root #密码
   cleanSession: true #是否清除会话
+  reconnect: true #是否断线重连
+  timeout: 20 #连接超时时间
+  keepAlive: 10 #心跳间隔

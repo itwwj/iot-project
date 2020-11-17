@@ -29,5 +29,17 @@ public class EmqProperties {
      * 设置是否清空session,这里如果设置为false表示服务器会保留客户端的连接记录，这里设置为true表示每次连接到服务器都以新的身份连接
      */
     private Boolean cleanSession;
+    /**
+     * 是否断线重连
+     */
+    private Boolean reconnect;
+    /**
+     * 连接超时时间
+     */
+    private Integer timeout;
+    /**
+     * 心跳间隔
+     */
+    private Integer keepAlive;
 
 }

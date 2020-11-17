@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 回调类
@@ -22,6 +24,11 @@ public class CallbackOrListener implements MqttCallbackExtended {
     public CallbackOrListener(List<SubscriptTopic> topicMap) {
         this.topicMap = topicMap;
     }
+
+    /**
+     * 线程池
+     */
+    public static ExecutorService executorService = Executors.newFixedThreadPool(5);
 
     /**
      * 客户端断开后触发
@@ -47,20 +54,21 @@ public class CallbackOrListener implements MqttCallbackExtended {
      * @param message 消息
      */
     @Override
-    public void messageArrived(String topic, MqttMessage message) {
-        try {
-            for (SubscriptTopic subscriptTopic : topicMap) {
-                if (subscriptTopic.getPattern() != Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
-                    subscriptTopic.getMessageListener().messageArrived(topic, message);
-                    break;
-                }
+    public void messageArrived(String topic, MqttMessage message){
+        for (SubscriptTopic subscriptTopic : topicMap) {
+            if (subscriptTopic.getPattern() != Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
+                executorService.submit(() -> {
+                    try {
+                        subscriptTopic.getMessageListener().messageArrived(topic, message);
+                    } catch (Exception e) {
+                        //报错后断掉的问题，临时将错误吃掉。
+                        e.printStackTrace();
+                    }
+                });
+                break;
             }
-        } catch (Exception e) {
-            //报错后断掉的问题，临时将错误吃掉。
-            e.printStackTrace();
         }
     }
-
     /**
      * 检测一个主题是否为一个通配符表示的子主题
      *
