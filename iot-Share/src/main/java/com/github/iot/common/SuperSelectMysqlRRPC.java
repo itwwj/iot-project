@@ -35,8 +35,8 @@ public abstract class SuperSelectMysqlRRPC<T, M extends BaseMapper<T>> implement
         ThreadUtils.executorService.submit(() -> {
             try {
                 Wrapper<T> wrapper = buildWrapper(topic, mqttMessage);
-                List<T> objects = (List<T>) mapper.selectObjs(wrapper);
-                String encoder = encoder(objects);
+                List<T> list = mapper.selectList(wrapper);
+                String encoder = encoder(list);
                 client.publish(topic.replace("request", "response"), encoder.getBytes(CharsetUtil.UTF_8), mqttMessage.getQos(), false);
             } catch (Exception ex) {
                 //解决业务处理错误导致断线问题
