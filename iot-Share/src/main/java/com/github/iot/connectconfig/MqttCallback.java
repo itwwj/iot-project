@@ -3,6 +3,7 @@ package com.github.iot.connectconfig;
 import com.github.iot.entity.Pattern;
 import com.github.iot.entity.SubscriptTopic;
 import com.github.iot.utils.ApplicationContextUtil;
+import com.github.iot.utils.ThreadUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
@@ -12,23 +13,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 回调类
+ * mqtt回调类
  *
  * @author jie
  */
 @Slf4j
-public class CallbackOrListener implements MqttCallbackExtended {
+public class MqttCallback implements MqttCallbackExtended {
 
     private List<SubscriptTopic> topicMap;
 
-    public CallbackOrListener(List<SubscriptTopic> topicMap) {
+    public MqttCallback(List<SubscriptTopic> topicMap) {
         this.topicMap = topicMap;
     }
 
-    /**
-     * 线程池
-     */
-    public static ExecutorService executorService = Executors.newFixedThreadPool(5);
 
     /**
      * 客户端断开后触发
@@ -38,12 +35,12 @@ public class CallbackOrListener implements MqttCallbackExtended {
     @SneakyThrows
     @Override
     public void connectionLost(Throwable throwable) {
-        log.info("EMQ连接断开....................................................");
-        EmqKeeper bean = ApplicationContextUtil.getBean(EmqKeeper.class);
-        while (!bean.getClient().isConnected()) {
-            log.info("emqx重新连接。。。。");
-            bean.connetToServer();
-            Thread.sleep(10000);
+        MqttClient client = ApplicationContextUtil.getBean(MqttClient.class);
+        MqttConnectOptions option = ApplicationContextUtil.getBean(MqttConnectOptions.class);
+        while (!client.isConnected()) {
+            log.info("emqx重新连接....................................................");
+            client.connect(option);
+            Thread.sleep(1000);
         }
     }
 
@@ -54,21 +51,15 @@ public class CallbackOrListener implements MqttCallbackExtended {
      * @param message 消息
      */
     @Override
-    public void messageArrived(String topic, MqttMessage message){
+    public void messageArrived(String topic, MqttMessage message) throws Exception {
         for (SubscriptTopic subscriptTopic : topicMap) {
             if (subscriptTopic.getPattern() != Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
-                executorService.submit(() -> {
-                    try {
-                        subscriptTopic.getMessageListener().messageArrived(topic, message);
-                    } catch (Exception e) {
-                        //报错后断掉的问题，临时将错误吃掉。
-                        e.printStackTrace();
-                    }
-                });
+                subscriptTopic.getMessageListener().messageArrived(topic, message);
                 break;
             }
         }
     }
+
     /**
      * 检测一个主题是否为一个通配符表示的子主题
      *
@@ -85,9 +76,10 @@ public class CallbackOrListener implements MqttCallbackExtended {
      *
      * @param token token
      */
+    @SneakyThrows
     @Override
     public void deliveryComplete(IMqttDeliveryToken token) {
-        log.info("deliveryComplete---------" + token.isComplete());
+        log.info("向主题：" + token.getTopics().toString() + "发送数据：" + new String(token.getMessage().getPayload()));
     }
 
     /**
@@ -99,14 +91,12 @@ public class CallbackOrListener implements MqttCallbackExtended {
     @SneakyThrows
     @Override
     public void connectComplete(boolean b, String s) {
-        EmqKeeper emqKeeper = ApplicationContextUtil.getBean(EmqKeeper.class);
-        if (emqKeeper.getClient().isConnected()) {
-            log.info("===================开始订阅主题===================");
+        MqttClient client = ApplicationContextUtil.getBean(MqttClient.class);
+        if (client.isConnected()) {
             for (SubscriptTopic sub : topicMap) {
-                emqKeeper.subscript(sub.getSubTopic(), sub.getQos(), sub.getMessageListener());
+                client.subscribe(sub.getSubTopic(), sub.getQos(), sub.getMessageListener());
                 log.info("订阅主题:" + sub.getSubTopic());
             }
-            log.info("=====================订阅结束=====================");
             log.info("共订阅:   " + topicMap.size() + "   个主题!");
         }
     }

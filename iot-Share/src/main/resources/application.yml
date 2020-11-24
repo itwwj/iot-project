@@ -1,5 +1,16 @@
 server:
   port: 9100
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.177:3306/test
+    username: root
+    password: root
+  data:
+    mongodb:
+      host: 192.168.1.177
+      port: 27017
+      database: iot-test
 emqx:
   broker: tcp://192.168.1.177:1883 #broker地址
   userName: root #授权账号 一定要授权的
@@ -8,3 +19,4 @@ emqx:
   reconnect: true #是否断线重连
   timeout: 20 #连接超时时间
   keepAlive: 10 #心跳间隔
+
