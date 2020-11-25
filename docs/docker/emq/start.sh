@@ -8,11 +8,11 @@ docker run -d --name emqx --restart=always  \
       -p 8883:8883 \
       -p 8084:8084 \
       -p 18083:18083 \
-      -v `pwd`/conf/emqx_auth_mysql.conf:/opt/emqx/etc/plugins/emqx_auth_mysql.conf \
-      -v `pwd`/conf/emqx.conf:/opt/emqx/etc/emqx.conf \
-      -v `pwd`/conf/acl.conf:/opt/emqx/etc/acl.conf \
+      -v `pwd`/etc:/opt/emqx/etc \
+      -v `pwd`/log:/opt/emqx/log \
+      -v `pwd`/css/app.86d4a07f05ad93ba771b4d37ffeee08d.css:/opt/emqx/lib/emqx_dashboard-4.0.0/priv/www/static/css/app.86d4a07f05ad93ba771b4d37ffeee08d.css \
       -e EMQX_NAME=emqx \
       -v /etc/localtime:/etc/localtime \
       --privileged=true \
-      emqx/emqx:v4.0.0
+      -u root emqx/emqx:v4.0.0
 
