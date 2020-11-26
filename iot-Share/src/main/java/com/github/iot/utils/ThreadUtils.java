@@ -10,5 +10,5 @@ public class ThreadUtils {
     /**
      * 线程池
      */
-    public static ExecutorService executorService = Executors.newFixedThreadPool(5);
+    public static ExecutorService executorService = Executors.newFixedThreadPool(10);
 }

@@ -6,11 +6,6 @@ chmod u+x *.sh
 
 sed -i "s/\r//" start.sh
 
-给conf目录里的文件权限：
-
-chmod 777 *.conf
-
-
 在使用权限插件emqx_auth_mysql时配置文件中的auth.mysql.server地址一定要改
 
 如果mysql在本机就写本机的ip 一定不能用127.0.0.1
