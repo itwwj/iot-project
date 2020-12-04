@@ -1,0 +1,603 @@
+==================================================
+                new log file                      
+==================================================
+12/03 03:24:52.626795 0x7fc5585ae340 DND start to initialize TDengine
+12/03 03:24:52.627105 0x7fc5585ae340 DND dnode storage is initialized at /var/lib/taos/dnode
+12/03 03:24:52.627184 0x7fc5585ae340 DND failed to read /var/lib/taos/dnode/dnodeCfg.json, file not exist
+12/03 03:24:52.627199 0x7fc5585ae340 DND dnode cfg is initialized
+12/03 03:24:52.627259 0x7fc5585ae340 DND failed to read /var/lib/taos/dnode/dnodeEps.json, file not exist
+12/03 03:24:52.627273 0x7fc5585ae340 DND dnode eps is initialized
+12/03 03:24:52.627876 0x7fc5585ae340 UTL localEp is: 219922ba82af:6030
+12/03 03:24:52.628625 0x7fc5585ae340 UTL WARN timezone not configured, set to system default: (UTC, +0000)
+12/03 03:24:52.628824 0x7fc5585ae340 UTL ERROR can't get locale from system, set it to en_US.UTF-8
+12/03 03:24:52.628866 0x7fc5585ae340 UTL WARN charset not configured, set to system default:UTF-8
+12/03 03:24:52.628888 0x7fc5585ae340 UTL ERROR Invalid locale:en_US.UTF-8, please set the valid locale in config file
+12/03 03:24:52.629090 0x7fc5585ae340 UTL    taos config & system info:
+12/03 03:24:52.629129 0x7fc5585ae340 UTL ==================================
+12/03 03:24:52.629139 0x7fc5585ae340 UTL  firstEp:                219922ba82af:6030 
+12/03 03:24:52.629146 0x7fc5585ae340 UTL  secondEp:               219922ba82af:6030 
+12/03 03:24:52.629154 0x7fc5585ae340 UTL  fqdn:                   219922ba82af 
+12/03 03:24:52.629161 0x7fc5585ae340 UTL  serverPort:             6030 
+12/03 03:24:52.629165 0x7fc5585ae340 UTL  configDir:              /etc/taos 
+12/03 03:24:52.629169 0x7fc5585ae340 UTL  logDir:                 /var/log/taos 
+12/03 03:24:52.629176 0x7fc5585ae340 UTL  scriptDir:              /etc/taos 
+12/03 03:24:52.629184 0x7fc5585ae340 UTL  dataDir:                /var/lib/taos 
+12/03 03:24:52.629194 0x7fc5585ae340 UTL  arbitrator:              
+12/03 03:24:52.629201 0x7fc5585ae340 UTL  numOfThreadsPerCore:    1.000000 
+12/03 03:24:52.629219 0x7fc5585ae340 UTL  numOfCommitThreads:     1 
+12/03 03:24:52.629229 0x7fc5585ae340 UTL  ratioOfQueryThreads:    0.500000 
+12/03 03:24:52.629237 0x7fc5585ae340 UTL  numOfMnodes:            3 
+12/03 03:24:52.629244 0x7fc5585ae340 UTL  vnodeBak:               1 
+12/03 03:24:52.629251 0x7fc5585ae340 UTL  telemetryReporting:     1 
+12/03 03:24:52.629259 0x7fc5585ae340 UTL  balance:                1 
+12/03 03:24:52.629267 0x7fc5585ae340 UTL  balanceInterval:        300 
+12/03 03:24:52.629275 0x7fc5585ae340 UTL  role:                   0 
+12/03 03:24:52.629282 0x7fc5585ae340 UTL  maxTmrCtrl:             512 
+12/03 03:24:52.629289 0x7fc5585ae340 UTL  monitorInterval:        30(s)
+12/03 03:24:52.629297 0x7fc5585ae340 UTL  offlineThreshold:       8640000(s)
+12/03 03:24:52.629307 0x7fc5585ae340 UTL  rpcTimer:               1000(ms)
+12/03 03:24:52.629314 0x7fc5585ae340 UTL  rpcMaxTime:             600(s)
+12/03 03:24:52.629321 0x7fc5585ae340 UTL  statusInterval:         1(s)
+12/03 03:24:52.629328 0x7fc5585ae340 UTL  shellActivityTimer:     3(s)
+12/03 03:24:52.629337 0x7fc5585ae340 UTL  tableMetaKeepTimer:     7200(s)
+12/03 03:24:52.629345 0x7fc5585ae340 UTL  minSlidingTime:         10(ms)
+12/03 03:24:52.629352 0x7fc5585ae340 UTL  minIntervalTime:        10(ms)
+12/03 03:24:52.629359 0x7fc5585ae340 UTL  maxStreamCompDelay:     20000(ms)
+12/03 03:24:52.629363 0x7fc5585ae340 UTL  maxFirstStreamCompDelay:10000(ms)
+12/03 03:24:52.629366 0x7fc5585ae340 UTL  retryStreamCompDelay:   10(ms)
+12/03 03:24:52.629370 0x7fc5585ae340 UTL  streamCompDelayRatio:   0.100000 
+12/03 03:24:52.629378 0x7fc5585ae340 UTL  maxVgroupsPerDb:        0 
+12/03 03:24:52.629385 0x7fc5585ae340 UTL  maxTablesPerVnode:      1000000 
+12/03 03:24:52.629393 0x7fc5585ae340 UTL  minTablesPerVnode:      1000 
+12/03 03:24:52.629400 0x7fc5585ae340 UTL  tableIncStepPerVnode:   1000 
+12/03 03:24:52.629407 0x7fc5585ae340 UTL  cache:                  16(Mb)
+12/03 03:24:52.629415 0x7fc5585ae340 UTL  blocks:                 6 
+12/03 03:24:52.629422 0x7fc5585ae340 UTL  days:                   10 
+12/03 03:24:52.629426 0x7fc5585ae340 UTL  keep:                   3650 
+12/03 03:24:52.629433 0x7fc5585ae340 UTL  minRows:                100 
+12/03 03:24:52.629454 0x7fc5585ae340 UTL  maxRows:                4096 
+12/03 03:24:52.629498 0x7fc5585ae340 UTL  comp:                   2 
+12/03 03:24:52.629508 0x7fc5585ae340 UTL  walLevel:               1 
+12/03 03:24:52.629515 0x7fc5585ae340 UTL  fsync:                  3000 
+12/03 03:24:52.629522 0x7fc5585ae340 UTL  replica:                1 
+12/03 03:24:52.629526 0x7fc5585ae340 UTL  quorum:                 1 
+12/03 03:24:52.629530 0x7fc5585ae340 UTL  update:                 0 
+12/03 03:24:52.629534 0x7fc5585ae340 UTL  compressMsgSize:        -1 
+12/03 03:24:52.629541 0x7fc5585ae340 UTL  maxSQLLength:           65480(byte)
+12/03 03:24:52.629548 0x7fc5585ae340 UTL  maxNumOfOrderedRes:     100000 
+12/03 03:24:52.629558 0x7fc5585ae340 UTL  queryBufferSize:        -1(byte)
+12/03 03:24:52.629565 0x7fc5585ae340 UTL  timezone:                (UTC, +0000) 
+12/03 03:24:52.629573 0x7fc5585ae340 UTL  locale:                 en_US.UTF-8 
+12/03 03:24:52.629576 0x7fc5585ae340 UTL  charset:                UTF-8 
+12/03 03:24:52.629584 0x7fc5585ae340 UTL  maxShellConns:          5000 
+12/03 03:24:52.629591 0x7fc5585ae340 UTL  maxConnections:         5000 
+12/03 03:24:52.629600 0x7fc5585ae340 UTL  minimalLogDirGB:        0.100000(GB)
+12/03 03:24:52.629625 0x7fc5585ae340 UTL  minimalTmpDirGB:        0.100000(GB)
+12/03 03:24:52.629636 0x7fc5585ae340 UTL  minimalDataDirGB:       0.500000(GB)
+12/03 03:24:52.629654 0x7fc5585ae340 UTL  mnodeEqualVnodeNum:     4 
+12/03 03:24:52.629662 0x7fc5585ae340 UTL  http:                   1 
+12/03 03:24:52.629670 0x7fc5585ae340 UTL  mqtt:                   0 
+12/03 03:24:52.629677 0x7fc5585ae340 UTL  monitor:                1 
+12/03 03:24:52.629684 0x7fc5585ae340 UTL  httpEnableRecordSql:    0 
+12/03 03:24:52.629692 0x7fc5585ae340 UTL  telegrafUseFieldNum:    0 
+12/03 03:24:52.629699 0x7fc5585ae340 UTL  httpMaxThreads:         2 
+12/03 03:24:52.629702 0x7fc5585ae340 UTL  restfulRowLimit:        10240 
+12/03 03:24:52.629706 0x7fc5585ae340 UTL  numOfLogLines:          10000000 
+12/03 03:24:52.629714 0x7fc5585ae340 UTL  logKeepDays:            0 
+12/03 03:24:52.629721 0x7fc5585ae340 UTL  asyncLog:               1 
+12/03 03:24:52.629730 0x7fc5585ae340 UTL  debugFlag:              0 
+12/03 03:24:52.629737 0x7fc5585ae340 UTL  mDebugFlag:             135 
+12/03 03:24:52.629744 0x7fc5585ae340 UTL  dDebugFlag:             135 
+12/03 03:24:52.629752 0x7fc5585ae340 UTL  sDebugFlag:             135 
+12/03 03:24:52.629755 0x7fc5585ae340 UTL  wDebugFlag:             135 
+12/03 03:24:52.629759 0x7fc5585ae340 UTL  sdbDebugFlag:           135 
+12/03 03:24:52.629763 0x7fc5585ae340 UTL  rpcDebugFlag:           131 
+12/03 03:24:52.629767 0x7fc5585ae340 UTL  tmrDebugFlag:           131 
+12/03 03:24:52.629770 0x7fc5585ae340 UTL  cDebugFlag:             131 
+12/03 03:24:52.629778 0x7fc5585ae340 UTL  jniDebugFlag:           131 
+12/03 03:24:52.629801 0x7fc5585ae340 UTL  odbcDebugFlag:          131 
+12/03 03:24:52.629833 0x7fc5585ae340 UTL  uDebugFlag:             131 
+12/03 03:24:52.629845 0x7fc5585ae340 UTL  httpDebugFlag:          131 
+12/03 03:24:52.629854 0x7fc5585ae340 UTL  mqttDebugFlag:          131 
+12/03 03:24:52.629860 0x7fc5585ae340 UTL  monitorDebugFlag:       131 
+12/03 03:24:52.629869 0x7fc5585ae340 UTL  qDebugFlag:             131 
+12/03 03:24:52.629883 0x7fc5585ae340 UTL  vDebugFlag:             131 
+12/03 03:24:52.629893 0x7fc5585ae340 UTL  tsdbDebugFlag:          131 
+12/03 03:24:52.629904 0x7fc5585ae340 UTL  cqDebugFlag:            135 
+12/03 03:24:52.629914 0x7fc5585ae340 UTL  tscEnableRecordSql:     0 
+12/03 03:24:52.629940 0x7fc5585ae340 UTL  enableCoreFile:         0 
+12/03 03:24:52.629948 0x7fc5585ae340 UTL  gitinfo:                30e18f31b7217aff476b01a6527718211026e633 
+12/03 03:24:52.629958 0x7fc5585ae340 UTL  gitinfoOfInternal:      NULL 
+12/03 03:24:52.629970 0x7fc5585ae340 UTL  buildinfo:              Built at 2020-11-21 00:06 
+12/03 03:24:52.629989 0x7fc5585ae340 UTL  version:                2.0.8.0 
+12/03 03:24:52.629995 0x7fc5585ae340 UTL  maxBinaryDisplayWidth:  30 
+12/03 03:24:52.630011 0x7fc5585ae340 UTL  tempDir:                /tmp/ 
+12/03 03:24:52.630021 0x7fc5585ae340 UTL  os pageSize:            4096(KB)
+12/03 03:24:52.630030 0x7fc5585ae340 UTL  os openMax:             1048576
+12/03 03:24:52.630039 0x7fc5585ae340 UTL  os streamMax:           16
+12/03 03:24:52.630050 0x7fc5585ae340 UTL  os numOfCores:          8
+12/03 03:24:52.630059 0x7fc5585ae340 UTL  os totalDisk:           16.986328(GB)
+12/03 03:24:52.630085 0x7fc5585ae340 UTL  os totalMemory:         5848(MB)
+12/03 03:24:52.630123 0x7fc5585ae340 UTL  os sysname:             Linux
+12/03 03:24:52.630135 0x7fc5585ae340 UTL  os nodename:            219922ba82af
+12/03 03:24:52.630140 0x7fc5585ae340 UTL  os release:             3.10.0-1127.el7.x86_64
+12/03 03:24:52.630145 0x7fc5585ae340 UTL  os version:             #1 SMP Tue Mar 31 23:36:51 UTC 2020
+12/03 03:24:52.630155 0x7fc5585ae340 UTL  os machine:             x86_64
+12/03 03:24:52.630167 0x7fc5585ae340 UTL ==================================
+12/03 03:24:52.630212 0x7fc5585ae340 DND failed to read /var/lib/taos/dnode/mnodeEpSet.json, file not exist
+12/03 03:24:52.630224 0x7fc5585ae340 DND dnode minfos is initialized
+12/03 03:24:52.630356 0x7fc5585ae340 WAL wal thread is launched
+12/03 03:24:52.630375 0x7fc5585ae340 WAL wal module is initialized, refId:2
+12/03 03:24:52.630417 0x7fc5585ae340 DND dnode check is initialized
+12/03 03:24:52.630436 0x7fc5585ae340 DND dnode vread is initialized, min worker:8 max worker:16
+12/03 03:24:52.630448 0x7fc5585ae340 DND dnode vwrite is initialized, max worker 8
+12/03 03:24:52.630464 0x7fc5585ae340 DND dnode mread worker:0 is created
+12/03 03:24:52.630488 0x7fc5585ae340 DND dnode mread worker:1 is created
+12/03 03:24:52.630496 0x7fc5585ae340 DND dnode mread worker:2 is created
+12/03 03:24:52.630499 0x7fc5585ae340 DND dnode mread worker:3 is created
+12/03 03:24:52.630501 0x7fc5585ae340 DND dnode mread is initialized, workers:4 qset:0x11ddc60
+12/03 03:24:52.630505 0x7fc5585ae340 DND dnode mwrite worker:0 is created
+12/03 03:24:52.630508 0x7fc5585ae340 DND dnode mwrite is initialized, workers:1 qset:0x11ddd20
+12/03 03:24:52.630511 0x7fc5585ae340 DND dnode mpeer worker:0 is created
+12/03 03:24:52.630513 0x7fc5585ae340 DND dnode mpeer is initialized, workers:1 qset:0x11ddd90
+12/03 03:24:52.632067 0x7fc5585ae340 DND dnode inter-dnodes rpc client is initialized
+12/03 03:24:52.632748 0x7fc5585ae340 DND dnode inter-dnodes RPC server is initialized
+12/03 03:24:52.632973 0x7fc5585ae340 SYN 0x1249dc0 TCP pool is created
+12/03 03:24:52.633075 0x7fc5585ae340 SYN sync module initialized successfully
+12/03 03:24:52.633335 0x7fc5585ae340 DND start 8 threads to open 0 vnodes
+12/03 03:24:52.633362 0x7fc5585ae340 DND there are total vnodes:0, openned:0 failed:0
+12/03 03:24:52.633401 0x7fc5585ae340 DND dnode mgmt is initialized
+12/03 03:24:52.633521 0x7fc5585ae340 MND mnode module start, asMaster:1 fileExist:0
+12/03 03:24:52.633536 0x7fc5585ae340 MND starting to initialize mnode ...
+12/03 03:24:52.633634 0x7fc5585ae340 DND dnode mwrite worker:0 is launched, total:1
+12/03 03:24:52.633645 0x7fc5585ae340 DND dnode mwrite queue:0x124bf40 is allocated
+12/03 03:24:52.633768 0x7fc5585ae340 DND dnode mread worker:0 is launched, total:4
+12/03 03:24:52.633877 0x7fc5585ae340 DND dnode mread worker:1 is launched, total:4
+12/03 03:24:52.633962 0x7fc5585ae340 DND dnode mread worker:2 is launched, total:4
+12/03 03:24:52.634033 0x7fc5585ae340 DND dnode mread worker:3 is launched, total:4
+12/03 03:24:52.634064 0x7fc5585ae340 DND dnode mread queue:0x124c0d0 is allocated
+12/03 03:24:52.634151 0x7fc5585ae340 DND dnode mpeer worker:0 is launched, total:1
+12/03 03:24:52.634178 0x7fc5585ae340 DND dnode mpeer queue:0x124c5f0 is allocated
+12/03 03:24:52.634352 0x7fc5585ae340 MND table:cluster, hash is created
+12/03 03:24:52.634398 0x7fc5585ae340 MND table:accounts, hash is created
+12/03 03:24:52.634430 0x7fc5585ae340 MND table:users, hash is created
+12/03 03:24:52.634447 0x7fc5585ae340 MND table:dnodes table is created
+12/03 03:24:52.634461 0x7fc5585ae340 MND table:dbs table is created
+12/03 03:24:52.634480 0x7fc5585ae340 MND table:vgroups is created
+12/03 03:24:52.634493 0x7fc5585ae340 MND table:stables is created
+12/03 03:24:52.634727 0x7fc5585ae340 MND table:ctables is created
+12/03 03:24:52.634760 0x7fc5585ae340 MND table:mnodes table is created
+12/03 03:24:52.634861 0x7fc5585ae340 MND sdb write worker:0 is launched, total:1
+12/03 03:24:52.634885 0x7fc5585ae340 MND sdb write queue:0x1268360 is allocated
+12/03 03:24:52.634891 0x7fc5585ae340 MND vgId:1, sdb write is opened
+12/03 03:24:52.635003 0x7fc5585ae340 WAL vgId:1, object is initialized
+12/03 03:24:52.635020 0x7fc5585ae340 WAL vgId:1, wal:0x1268580 is opened, level:2 fsyncPeriod:0
+12/03 03:24:52.635026 0x7fc5585ae340 SDB vgId:1, open wal for restore
+12/03 03:24:52.635145 0x7fc5585ae340 WAL vgId:1, wal file not exist, renew it
+12/03 03:24:52.635236 0x7fc5585ae340 WAL vgId:1, file:/var/lib/taos/mnode/wal/wal0, it is created
+12/03 03:24:52.635248 0x7fc5585ae340 MND dnode first deploy, create cluster
+12/03 03:24:52.635323 0x7fc5585ae340 MND uid is 26b0dba2-755e-4a1a-a4a6-65c408cfa718
+12/03 03:24:52.635343 0x7fc5585ae340 SDB vgId:1, sdb:cluster, insert key:26b0dba2-755e-4a1a-a4a6-65c408cfa718 to hash, rowSize:0 rows:1, msg:(nil)
+12/03 03:24:52.635382 0x7fc5585ae340 MND cluster id is set to 26b0dba2-755e-4a1a-a4a6-65c408cfa718
+12/03 03:24:52.635405 0x7fc5585ae340 SDB vgId:1, sdb:cluster is restored, rows:1
+12/03 03:24:52.635414 0x7fc5585ae340 MND dnode first deploy, create dnode:219922ba82af:6030
+12/03 03:24:52.635441 0x7fc5585ae340 SDB vgId:1, sdb:dnodes, insert key:1 to hash, rowSize:344 rows:1, msg:(nil)
+12/03 03:24:52.635453 0x7fc5585ae340 MND dnode:1, fqdn:219922ba82af ep:219922ba82af:6030 port:6030, do insert action
+12/03 03:24:52.635467 0x7fc5585ae340 MND dnode:1 is created
+12/03 03:24:52.635481 0x7fc5585ae340 SDB vgId:1, sdb:mnodes, insert key:1 to hash, rowSize:0 rows:1, msg:(nil)
+12/03 03:24:52.635491 0x7fc5585ae340 MND mnode:1, fqdn:219922ba82af ep:219922ba82af:6030 port:6030, do insert action
+12/03 03:24:52.635502 0x7fc5585ae340 SDB vgId:1, sdb:dnodes is restored, rows:1
+12/03 03:24:52.635510 0x7fc5585ae340 MND update mnodes epSet, numOfEps:1 
+12/03 03:24:52.635526 0x7fc5585ae340 MND mnode:1, for shell fqdn:219922ba82af 6030
+12/03 03:24:52.635533 0x7fc5585ae340 MND mnode:1, for peer fqdn:219922ba82af 6035
+12/03 03:24:52.635540 0x7fc5585ae340 MND mnode:1, ep:219922ba82af:6030 master
+12/03 03:24:52.635551 0x7fc5585ae340 SDB vgId:1, sdb:mnodes is restored, rows:1
+12/03 03:24:52.635558 0x7fc5585ae340 MND dnode first deploy, create root acct
+12/03 03:24:52.635582 0x7fc5585ae340 SDB vgId:1, sdb:accounts, insert key:root to hash, rowSize:0 rows:1, msg:(nil)
+12/03 03:24:52.635591 0x7fc5585ae340 SDB vgId:1, sdb:accounts is restored, rows:1
+12/03 03:24:52.635598 0x7fc5585ae340 MND dnode first deploy, create root user
+12/03 03:24:52.635612 0x7fc5585ae340 SDB vgId:1, sdb:users, insert key:root to hash, rowSize:104 rows:1, msg:(nil)
+12/03 03:24:52.635621 0x7fc5585ae340 MND user:root, is created by system
+12/03 03:24:52.635633 0x7fc5585ae340 SDB vgId:1, sdb:users, insert key:monitor to hash, rowSize:104 rows:2, msg:(nil)
+12/03 03:24:52.635641 0x7fc5585ae340 MND user:monitor, is created by system
+12/03 03:24:52.635653 0x7fc5585ae340 SDB vgId:1, sdb:users, insert key:_root to hash, rowSize:104 rows:3, msg:(nil)
+12/03 03:24:52.635661 0x7fc5585ae340 MND user:_root, is created by system
+12/03 03:24:52.635673 0x7fc5585ae340 SDB vgId:1, sdb:users is restored, rows:3
+12/03 03:24:52.635680 0x7fc5585ae340 SDB vgId:1, sdb:dbs is restored, rows:0
+12/03 03:24:52.635687 0x7fc5585ae340 SDB vgId:1, sdb:vgroups is restored, rows:0
+12/03 03:24:52.635696 0x7fc5585ae340 SDB vgId:1, sdb:stables is restored, rows:0
+12/03 03:24:52.635705 0x7fc5585ae340 SDB vgId:1, sdb:ctables is restored, rows:0
+12/03 03:24:52.635710 0x7fc5585ae340 SDB vgId:1, sdb is restored, mver:1 rows:7 tables:9
+12/03 03:24:52.635726 0x7fc5585ae340 MND balance start fp:0x46bc81 initialized
+12/03 03:24:52.635734 0x7fc5585ae340 MND dnode:1 set access:0 to 0
+12/03 03:24:52.635923 0x7fc5585ae340 MND mnode is initialized successfully
+12/03 03:24:52.635956 0x7fc5585ae340 MND vgId:1, update sync config in sync module, mnodes:(nil)
+12/03 03:24:52.635970 0x7fc5585ae340 MND vgId:1, mnodes info not input, use infos in sdb, numOfMnodes:1
+12/03 03:24:52.635976 0x7fc5585ae340 SDB vgId:1, update sync config, this dnode not exist
+12/03 03:24:52.636100 0x7fc5585ae340 DND dnode modules is initialized
+12/03 03:24:52.636118 0x7fc5585ae340 DND dnode mgmt timer is initialized
+12/03 03:24:52.636764 0x7fc5585ae340 DND dnode shell rpc server is initialized
+12/03 03:24:52.636875 0x7fc5585ae340 DND dnode telemetry is initialized
+12/03 03:24:52.636888 0x7fc5585ae340 HTP start http server ...
+12/03 03:24:52.637028 0x7fc5585ae340 HTP http result queue is opened
+12/03 03:24:52.637667 0x7fc54a7f4700 MND mnode is created successfully
+12/03 03:24:52.637696 0x7fc54a7f4700 MND update mnodes epSet, numOfEps:1 
+12/03 03:24:52.637735 0x7fc54a7f4700 MND mnode:1, for shell fqdn:219922ba82af 6030
+12/03 03:24:52.637746 0x7fc54a7f4700 MND mnode:1, for peer fqdn:219922ba82af 6035
+12/03 03:24:52.637772 0x7fc54a7f4700 MND mnode:1, ep:219922ba82af:6030 master
+12/03 03:24:52.637897 0x7fc53e7fc700 HTP http server init success at 6041
+12/03 03:24:52.638213 0x7fc5585ae340 MON monitor module start
+12/03 03:24:52.638268 0x7fc5585ae340 DND TDengine is initialized successfully
+12/03 03:24:52.842141 0x7fc5573ef700 MND vgId:1, update sync config in sync module, mnodes:(nil)
+12/03 03:24:52.842314 0x7fc5573ef700 MND vgId:1, mnodes info not input, use infos in sdb, numOfMnodes:1
+12/03 03:24:52.842326 0x7fc5573ef700 SDB vgId:1, update sync config, this dnode not exist
+12/03 03:24:53.144753 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:53.145032 0x7fc54b7f6700 MND dnode:1 219922ba82af:6030, first access, set clusterId 26b0dba2-755e-4a1a-a4a6-65c408cfa718
+12/03 03:24:53.145099 0x7fc54b7f6700 MND dnode:1, from offline to online
+12/03 03:24:53.146002 0x7fc555b97700 DND print mnode infos, mnodeNum:1 inUse:0
+12/03 03:24:53.146124 0x7fc555b97700 DND mnode index:1, 219922ba82af:6030
+12/03 03:24:53.146936 0x7fc555b97700 DND successed to write /var/lib/taos/dnode/mnodeEpSet.json
+12/03 03:24:53.147126 0x7fc555b97700 DND dnodeId is set to 1, clusterId is set to 26b0dba2-755e-4a1a-a4a6-65c408cfa718
+12/03 03:24:53.147437 0x7fc555b97700 DND successed to write /var/lib/taos/dnode/dnodeCfg.json
+12/03 03:24:53.147477 0x7fc555b97700 DND print dnodeEp, dnodeNum:1
+12/03 03:24:53.147495 0x7fc555b97700 DND dnodeId:1, dnodeFqdn:219922ba82af dnodePort:6030
+12/03 03:24:53.148156 0x7fc555b97700 DND successed to write /var/lib/taos/dnode/dnodeEps.json
+12/03 03:24:53.355093 0x7fc5573ef700 MND vgId:1, update sync config in sync module, mnodes:(nil)
+12/03 03:24:53.355218 0x7fc5573ef700 MND vgId:1, mnodes info not input, use infos in sdb, numOfMnodes:1
+12/03 03:24:53.355259 0x7fc5573ef700 SDB vgId:1, work as mnode, replica:1
+12/03 03:24:53.355432 0x7fc5573ef700 SDB vgId:1, mnode:1, 219922ba82af:6040
+12/03 03:24:53.355685 0x7fc5573ef700 SYN vgId:1, peer:219922ba82af:6040, it is configured
+12/03 03:24:53.355713 0x7fc5573ef700 SYN vgId:1, 1 replicas are configured, quorum:1 role:master
+12/03 03:24:53.355751 0x7fc5573ef700 SDB vgId:1, mnode role changed from master to master
+12/03 03:24:53.355789 0x7fc5573ef700 SDB vgId:1, update mnodes role, replica:1
+12/03 03:24:53.355821 0x7fc5573ef700 SDB vgId:1, mnode:1, role:master
+12/03 03:24:53.355854 0x7fc5573ef700 MND cluster id is set to 26b0dba2-755e-4a1a-a4a6-65c408cfa718
+12/03 03:24:53.355884 0x7fc5573ef700 MND update mnodes epSet, numOfEps:1 
+12/03 03:24:53.355917 0x7fc5573ef700 MND mnode:1, for shell fqdn:219922ba82af 6030
+12/03 03:24:53.355941 0x7fc5573ef700 MND mnode:1, for peer fqdn:219922ba82af 6035
+12/03 03:24:53.355963 0x7fc5573ef700 MND mnode:1, ep:219922ba82af:6030 master
+12/03 03:24:53.640720 0x7fc5477ee700 MND user:monitor, auth info is returned
+12/03 03:24:53.641046 0x7fc54d7fa700 DND msg:0x7fc52802fa40, app:0x7fc51c0010c0 type:connect will be processed in mread queue
+12/03 03:24:53.641300 0x7fc54d7fa700 MND connId:1, is created, user:monitor ip:172.17.0.6:48038
+12/03 03:24:53.641722 0x7fc54d7fa700 MND user:monitor login from 172.17.0.6, result:success
+12/03 03:24:53.643874 0x7fc546fed700 DND msg:0x7fc518000fb0, app:0x7fc52802fa40 type:create-db is put into mwrite queue:0x124bf40
+12/03 03:24:53.644042 0x7fc54dffb700 DND msg:0x7fc518000fb0, app:0x7fc52802fa40 type:create-db will be processed in mwrite queue
+12/03 03:24:53.644151 0x7fc54dffb700 SDB vgId:1, sdb:dbs, insert key:0.log to hash, rowSize:248 rows:1, msg:0x7fc518000fb0
+12/03 03:24:53.647161 0x7fc54a7f4700 MND db:0.log, is created by monitor
+12/03 03:24:53.647414 0x7fc54a7f4700 DND msg:0x7fc518000fb0, app:0x7fc52802fa40 type:create-db is freed from mwrite queue:0x124bf40
+12/03 03:24:53.647576 0x7fc5573ef700 MND balance function is scheduled by event for 500 mseconds arrived
+12/03 03:24:53.648363 0x7fc546fed700 DND msg:0x7fc5180016e0, app:0x7fc52802fa40 type:create-table is put into mwrite queue:0x124bf40
+12/03 03:24:53.648486 0x7fc54dffb700 DND msg:0x7fc5180016e0, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.648518 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 table:0.log.log, create ctable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.648545 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 db:0.log, try to create a new vgroup, numOfVgroups:0 maxVgroupsPerDb:8
+12/03 03:24:53.648585 0x7fc54dffb700 MND db:0.log, try alloc 1 vnodes to vgroup, dnodes total:1, avail:1
+12/03 03:24:53.648593 0x7fc54dffb700 MND dnode:1, is selected, vnodeIndex:0
+12/03 03:24:53.648604 0x7fc54dffb700 SDB vgId:1, sdb:vgroups, insert key:2 to hash, rowSize:224 rows:1, msg:0x7fc5180016e0
+12/03 03:24:53.648639 0x7fc54dffb700 MND vgId:2, init idPool for vgroup, size:1000
+12/03 03:24:53.648669 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 vgId:2, is created in mnode, db:0.log replica:1
+12/03 03:24:53.648746 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 vgId:2, index:0, dnode:1
+12/03 03:24:53.648835 0x7fc54dffb700 MND vgId:2, send create all vnodes msg, numOfVnodes:1 db:0.log
+12/03 03:24:53.648859 0x7fc54dffb700 MND vgId:2, index:0, send create vnode msg to dnode 219922ba82af:6030, ahandle:0x7fc5180016e0
+12/03 03:24:53.649011 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 table:0.log.log, failed to get available vgroup, reason:Message is progressing
+12/03 03:24:53.649380 0x7fc54e7fc700 DND msg:0x7fc52c000c10, ahandle:0x7fc5180016e0 type:create-vnode will be processed
+12/03 03:24:53.649476 0x7fc54e7fc700 DND vgId:2, create vnode msg is received
+12/03 03:24:53.650265 0x7fc54e7fc700 VND vgId:2, successed to write /var/lib/taos/vnode/vnode2/config.json
+12/03 03:24:53.658506 0x7fc54e7fc700 VND vgId:2, vnode dir is created, walLevel:1 fsyncPeriod:3000
+12/03 03:24:53.658991 0x7fc54e7fc700 VND vgId:2, load vnode cfg successfully, replcia:1
+12/03 03:24:53.659083 0x7fc54e7fc700 VND vgId:2, dnode:1, 219922ba82af:6040
+12/03 03:24:53.659413 0x7fc54e7fc700 DND dnode vwrite worker:0 is launched
+12/03 03:24:53.659451 0x7fc54e7fc700 DND pVnode:0x7fc5100011d0, dnode vwrite queue:0x7fc510002990 is allocated
+12/03 03:24:53.659589 0x7fc54e7fc700 DND dnode vread worker:0 is launched, total:1
+12/03 03:24:53.659659 0x7fc53aff5700 DND dnode vwrite worker:0 is running
+12/03 03:24:53.659733 0x7fc54e7fc700 DND dnode vread worker:1 is launched, total:2
+12/03 03:24:53.659863 0x7fc54e7fc700 DND dnode vread worker:2 is launched, total:3
+12/03 03:24:53.660045 0x7fc54e7fc700 DND dnode vread worker:3 is launched, total:4
+12/03 03:24:53.666358 0x7fc54e7fc700 DND dnode vread worker:4 is launched, total:5
+12/03 03:24:53.666618 0x7fc54e7fc700 DND dnode vread worker:5 is launched, total:6
+12/03 03:24:53.666789 0x7fc54e7fc700 DND dnode vread worker:6 is launched, total:7
+12/03 03:24:53.667057 0x7fc54e7fc700 DND dnode vread worker:7 is launched, total:8
+12/03 03:24:53.667091 0x7fc54e7fc700 DND pVnode:0x7fc5100011d0, dnode vread queue:0x7fc510003290 is allocated
+12/03 03:24:53.667133 0x7fc54e7fc700 CQ  vgId:2, CQ is opened
+12/03 03:24:53.669191 0x7fc54e7fc700 WAL vgId:2, object is initialized
+12/03 03:24:53.669300 0x7fc54e7fc700 WAL vgId:2, wal:0x7fc51002a080 is opened, level:1 fsyncPeriod:3000
+12/03 03:24:53.669756 0x7fc54e7fc700 WAL vgId:2, file:/var/lib/taos/vnode/vnode2/wal/wal1, it is created
+12/03 03:24:53.669896 0x7fc54e7fc700 SYN vgId:2, peer:219922ba82af:6040, it is configured
+12/03 03:24:53.669915 0x7fc54e7fc700 SYN vgId:2, 1 replicas are configured, quorum:1 role:master
+12/03 03:24:53.669939 0x7fc54e7fc700 VND vgId:2, sync role changed from offline to master
+12/03 03:24:53.670014 0x7fc54e7fc700 DND force send status msg to mnode
+12/03 03:24:53.670058 0x7fc54e7fc700 CQ  vgId:2, start all CQs
+12/03 03:24:53.670561 0x7fc555b97700 MND vgId:2, create vnode rsp received, result:success received:1 successed:1 expected:1, thandle:0x7fc55404a188 ahandle:0x7fc5180016e0
+12/03 03:24:53.677302 0x7fc54a7f4700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 vgId:2, is created in sdb, db:0.log replica:1
+12/03 03:24:53.677423 0x7fc54a7f4700 SDB vgId:1, sdb:vgroups, update key:2 in hash, numOfRows:1, msg:(nil)
+12/03 03:24:53.677464 0x7fc54a7f4700 MND vgId:2, reset sync status to offline
+12/03 03:24:53.677473 0x7fc54a7f4700 MND vgId:2, is updated, numOfVnode:1
+12/03 03:24:53.677503 0x7fc54a7f4700 DND msg:0x7fc5180016e0, app:0x7fc52802fa40 type:create-table is reput into mwrite queue:0x124bf40, retry times:0
+12/03 03:24:53.677580 0x7fc54dffb700 DND msg:0x7fc5180016e0, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.677620 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 table:0.log.log, create ctable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.685601 0x7fc54dffb700 SDB vgId:1, sdb:ctables, insert key:0.log.log to hash, rowSize:0 rows:1, msg:0x7fc5180016e0
+12/03 03:24:53.693438 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 table:0.log.log, created in mnode, vgId:2 sid:1, uid:562949970201241
+12/03 03:24:53.693615 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:53.693901 0x7fc54dffb700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 table:0.log.log, allocated in vgroup, vgId:2 sid:1 uid:562949970201241
+12/03 03:24:53.713335 0x7fc54a7f4700 MND msg:0x7fc5180016e0, app:0x7fc52802fa40 table:0.log.log, created in dnode, thandle:0x7fc55404a188
+12/03 03:24:53.713518 0x7fc54a7f4700 DND msg:0x7fc5180016e0, app:0x7fc52802fa40 type:create-table is freed from mwrite queue:0x124bf40
+12/03 03:24:53.714121 0x7fc546fed700 DND msg:0x7fc5180022e0, app:0x7fc52802fa40 type:create-table is put into mwrite queue:0x124bf40
+12/03 03:24:53.714759 0x7fc54dffb700 DND msg:0x7fc5180022e0, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.714862 0x7fc54dffb700 MND msg:0x7fc5180022e0, app:0x7fc52802fa40 table:0.log.dn, create stable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.714913 0x7fc54dffb700 SDB vgId:1, sdb:stables, insert key:0.log.dn to hash, rowSize:1278 rows:1, msg:0x7fc5180022e0
+12/03 03:24:53.721544 0x7fc54a7f4700 MND stable:0.log.dn, is created in sdb, uid:9720811798298364860
+12/03 03:24:53.721929 0x7fc54a7f4700 DND msg:0x7fc5180022e0, app:0x7fc52802fa40 type:create-table is freed from mwrite queue:0x124bf40
+12/03 03:24:53.723039 0x7fc546fed700 DND msg:0x7fc518002480, app:0x7fc52802fa40 type:create-table is put into mwrite queue:0x124bf40
+12/03 03:24:53.723450 0x7fc54dffb700 DND msg:0x7fc518002480, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.723624 0x7fc54dffb700 MND msg:0x7fc518002480, app:0x7fc52802fa40 table:0.log.acct, create stable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.723679 0x7fc54dffb700 SDB vgId:1, sdb:stables, insert key:0.log.acct to hash, rowSize:1698 rows:2, msg:0x7fc518002480
+12/03 03:24:53.733690 0x7fc54a7f4700 MND stable:0.log.acct, is created in sdb, uid:9720811945300331559
+12/03 03:24:53.734014 0x7fc54a7f4700 DND msg:0x7fc518002480, app:0x7fc52802fa40 type:create-table is freed from mwrite queue:0x124bf40
+12/03 03:24:53.737298 0x7fc548ff1700 MND user:monitor, auth info is returned
+12/03 03:24:53.737674 0x7fc54cff9700 DND msg:0x7fc528047340, app:0x7fc500001040 type:table-meta will be processed in mread queue
+12/03 03:24:53.737713 0x7fc54cff9700 MND msg:0x7fc500001040, app:0x7fc528047340 table:0.log.dn, table meta msg is received from thandle:0x7fc55404a300, createFlag:0
+12/03 03:24:53.738065 0x7fc54cff9700 MND msg:0x7fc500001040, app:0x7fc528047340 stable:0.log.dn, uid:9720811798298364860 table meta is retrieved
+12/03 03:24:53.739534 0x7fc546fed700 DND msg:0x7fc5180012a0, app:0x7fc52802fa40 type:create-table is put into mwrite queue:0x124bf40
+12/03 03:24:53.740385 0x7fc54dffb700 DND msg:0x7fc5180012a0, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.740498 0x7fc54dffb700 MND msg:0x7fc5180012a0, app:0x7fc52802fa40 table:0.log.dn1, create ctable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.741223 0x7fc54dffb700 SDB vgId:1, sdb:ctables, insert key:0.log.dn1 to hash, rowSize:0 rows:2, msg:0x7fc5180012a0
+12/03 03:24:53.741499 0x7fc54dffb700 MND table:0.log.dn, vgId:2 is put into stable vgList, sizeOfVgList:1
+12/03 03:24:53.741527 0x7fc54dffb700 MND msg:0x7fc5180012a0, app:0x7fc52802fa40 table:0.log.dn1, created in mnode, vgId:2 sid:2, uid:562949986979116
+12/03 03:24:53.741685 0x7fc54dffb700 MND msg:0x7fc5180012a0, app:0x7fc52802fa40 table:0.log.dn1, allocated in vgroup, vgId:2 sid:2 uid:562949986979116
+12/03 03:24:53.752791 0x7fc54a7f4700 MND msg:0x7fc5180012a0, app:0x7fc52802fa40 table:0.log.dn1, created in dnode, thandle:0x7fc55404a188
+12/03 03:24:53.753033 0x7fc54a7f4700 DND msg:0x7fc5180012a0, app:0x7fc52802fa40 type:create-table is freed from mwrite queue:0x124bf40
+12/03 03:24:53.753951 0x7fc54c7f8700 DND msg:0x7fc528047340, app:0x7fc5000011d0 type:table-meta will be processed in mread queue
+12/03 03:24:53.754043 0x7fc54c7f8700 MND msg:0x7fc5000011d0, app:0x7fc528047340 table:0.log.acct, table meta msg is received from thandle:0x7fc55404a300, createFlag:0
+12/03 03:24:53.754365 0x7fc54c7f8700 MND msg:0x7fc5000011d0, app:0x7fc528047340 stable:0.log.acct, uid:9720811945300331559 table meta is retrieved
+12/03 03:24:53.757547 0x7fc546fed700 DND msg:0x7fc518001f40, app:0x7fc52802fa40 type:create-table is put into mwrite queue:0x124bf40
+12/03 03:24:53.759290 0x7fc54dffb700 DND msg:0x7fc518001f40, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.759407 0x7fc54dffb700 MND msg:0x7fc518001f40, app:0x7fc52802fa40 table:0.log.acct_root, create ctable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.760692 0x7fc54dffb700 SDB vgId:1, sdb:ctables, insert key:0.log.acct_root to hash, rowSize:0 rows:3, msg:0x7fc518001f40
+12/03 03:24:53.760814 0x7fc54dffb700 MND table:0.log.acct, vgId:2 is put into stable vgList, sizeOfVgList:1
+12/03 03:24:53.760845 0x7fc54dffb700 MND msg:0x7fc518001f40, app:0x7fc52802fa40 table:0.log.acct_root, created in mnode, vgId:2 sid:3, uid:562950003756654
+12/03 03:24:53.761005 0x7fc54dffb700 MND msg:0x7fc518001f40, app:0x7fc52802fa40 table:0.log.acct_root, allocated in vgroup, vgId:2 sid:3 uid:562950003756654
+12/03 03:24:53.793334 0x7fc54a7f4700 MND msg:0x7fc518001f40, app:0x7fc52802fa40 table:0.log.acct_root, created in dnode, thandle:0x7fc55404a188
+12/03 03:24:53.793572 0x7fc54a7f4700 DND msg:0x7fc518001f40, app:0x7fc52802fa40 type:create-table is freed from mwrite queue:0x124bf40
+12/03 03:24:53.794101 0x7fc546fed700 DND msg:0x7fc518001a70, app:0x7fc52802fa40 type:create-table is put into mwrite queue:0x124bf40
+12/03 03:24:53.795579 0x7fc54dffb700 DND msg:0x7fc518001a70, app:0x7fc52802fa40 type:create-table will be processed in mwrite queue
+12/03 03:24:53.795705 0x7fc54dffb700 MND msg:0x7fc518001a70, app:0x7fc52802fa40 table:0.log.slowquery, create ctable msg is received from thandle:0x7fc55404a188
+12/03 03:24:53.797023 0x7fc54dffb700 SDB vgId:1, sdb:ctables, insert key:0.log.slowquery to hash, rowSize:0 rows:4, msg:0x7fc518001a70
+12/03 03:24:53.797149 0x7fc54dffb700 MND msg:0x7fc518001a70, app:0x7fc52802fa40 table:0.log.slowquery, created in mnode, vgId:2 sid:4, uid:562950020534126
+12/03 03:24:53.797404 0x7fc54dffb700 MND msg:0x7fc518001a70, app:0x7fc52802fa40 table:0.log.slowquery, allocated in vgroup, vgId:2 sid:4 uid:562950020534126
+12/03 03:24:53.810845 0x7fc54a7f4700 MND msg:0x7fc518001a70, app:0x7fc52802fa40 table:0.log.slowquery, created in dnode, thandle:0x7fc55404a188
+12/03 03:24:53.811208 0x7fc54a7f4700 DND msg:0x7fc518001a70, app:0x7fc52802fa40 type:create-table is freed from mwrite queue:0x124bf40
+12/03 03:24:54.697640 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:55.148826 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518001e50 type:heartbeat will be processed in mread queue
+12/03 03:24:55.703030 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:56.652187 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc5180025e0 type:heartbeat will be processed in mread queue
+12/03 03:24:56.708839 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:57.712591 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:58.157058 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518002710 type:heartbeat will be processed in mread queue
+12/03 03:24:58.717514 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:24:59.662963 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518002840 type:heartbeat will be processed in mread queue
+12/03 03:24:59.722853 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:00.728406 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:01.168225 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518002970 type:heartbeat will be processed in mread queue
+12/03 03:25:01.732324 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:02.672917 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518002aa0 type:heartbeat will be processed in mread queue
+12/03 03:25:02.737517 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:03.744547 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:04.177653 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518002bd0 type:heartbeat will be processed in mread queue
+12/03 03:25:04.750068 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:05.688217 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518002d00 type:heartbeat will be processed in mread queue
+12/03 03:25:05.752399 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:06.757816 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:07.192640 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518002e30 type:heartbeat will be processed in mread queue
+12/03 03:25:07.763201 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:08.697333 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518002f60 type:heartbeat will be processed in mread queue
+12/03 03:25:08.770745 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:09.778536 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:10.203178 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518003090 type:heartbeat will be processed in mread queue
+12/03 03:25:10.782706 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:11.707349 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc5180031c0 type:heartbeat will be processed in mread queue
+12/03 03:25:11.788142 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:12.792958 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:13.212988 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc5180032f0 type:heartbeat will be processed in mread queue
+12/03 03:25:13.798076 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:14.717108 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518003420 type:heartbeat will be processed in mread queue
+12/03 03:25:14.804249 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:15.807103 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:16.222061 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518003550 type:heartbeat will be processed in mread queue
+12/03 03:25:16.812401 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:17.729012 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518003680 type:heartbeat will be processed in mread queue
+12/03 03:25:17.817413 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:18.822509 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:19.232727 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc5180037b0 type:heartbeat will be processed in mread queue
+12/03 03:25:19.827960 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:20.750949 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc5180038e0 type:heartbeat will be processed in mread queue
+12/03 03:25:20.835360 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:21.837777 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:22.258423 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518003a10 type:heartbeat will be processed in mread queue
+12/03 03:25:22.831989 0x7fc5487f0700 MND user:monitor, auth info is returned
+12/03 03:25:22.832445 0x7fc54c7f8700 DND msg:0x7fc528043900, app:0x7fc4e4001040 type:table-meta will be processed in mread queue
+12/03 03:25:22.832588 0x7fc54c7f8700 MND msg:0x7fc4e4001040, app:0x7fc528043900 table:0.log.dn1, table meta msg is received from thandle:0x7fc55404a478, createFlag:0
+12/03 03:25:22.832639 0x7fc54c7f8700 MND msg:0x7fc4e4001040, app:0x7fc528043900 table:0.log.dn1, uid:562949986979116 table meta is retrieved, vgId:2 sid:2
+12/03 03:25:22.843080 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:23.767473 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004030 type:heartbeat will be processed in mread queue
+12/03 03:25:23.847716 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:24.860060 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:25.274666 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004160 type:heartbeat will be processed in mread queue
+12/03 03:25:25.865807 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:26.778727 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004290 type:heartbeat will be processed in mread queue
+12/03 03:25:26.872590 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:27.876983 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:28.282783 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc5180043c0 type:heartbeat will be processed in mread queue
+12/03 03:25:28.882909 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:29.794431 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc5180044f0 type:heartbeat will be processed in mread queue
+12/03 03:25:29.888373 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:30.892141 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:31.302545 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004620 type:heartbeat will be processed in mread queue
+12/03 03:25:31.897976 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:32.809794 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004700 type:heartbeat will be processed in mread queue
+12/03 03:25:32.902379 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:33.908096 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:34.312277 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc5180047e0 type:heartbeat will be processed in mread queue
+12/03 03:25:34.914055 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:35.824237 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004910 type:heartbeat will be processed in mread queue
+12/03 03:25:35.917739 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:36.922532 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:37.332638 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc5180049f0 type:heartbeat will be processed in mread queue
+12/03 03:25:37.929392 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:38.837904 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc5180049f0 type:heartbeat will be processed in mread queue
+12/03 03:25:38.932577 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:39.937925 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:40.348295 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc5180049f0 type:heartbeat will be processed in mread queue
+12/03 03:25:40.942857 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:41.852931 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:41.956640 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:42.964171 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:43.364255 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:43.998943 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:44.876382 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:45.003306 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:46.012826 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:46.386191 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:47.017724 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:47.893927 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:48.028461 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:49.032581 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:49.397806 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:50.040484 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:50.907077 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:51.047378 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:52.052615 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:52.419999 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004ad0 type:heartbeat will be processed in mread queue
+12/03 03:25:53.056886 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:53.927304 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:25:54.062717 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:55.069688 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:55.432445 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:25:56.072160 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:56.937982 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:25:57.077555 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:58.083079 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:58.442808 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:25:59.087416 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:25:59.955693 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:00.096664 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:01.102593 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:01.457011 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:02.107476 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:02.987858 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:03.112920 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:04.117724 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:04.494112 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:05.127745 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:06.004323 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:06.132328 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:07.138188 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:07.512720 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:08.144221 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:09.017721 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:09.150135 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:10.160982 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:10.522523 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:11.172587 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:12.031497 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:12.182118 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:13.187844 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:13.537039 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:14.198851 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:15.042550 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:15.204980 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:16.209024 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:16.548483 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:17.212843 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:18.054228 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:18.217729 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:19.222725 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:19.557737 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:20.228700 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:21.063599 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:21.232510 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:22.237483 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:22.567969 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004c10 type:heartbeat will be processed in mread queue
+12/03 03:26:23.243284 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:24.073833 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:24.247619 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:25.256918 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:25.580731 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:26.263403 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:27.088744 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:27.268060 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:28.274105 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:28.592601 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:29.279098 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:30.098535 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:30.282393 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:31.287586 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:31.603327 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:32.299041 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:33.112562 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:33.307544 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:34.313381 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:34.618383 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:35.319557 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:36.124008 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:36.324439 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:37.327621 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:37.627942 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:38.337595 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:39.142823 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:39.343458 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:40.349850 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:40.648350 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:41.357674 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:42.152937 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:42.362747 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:43.372199 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:43.658212 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:44.381012 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:45.164377 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:45.387965 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:46.393218 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:46.668308 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:47.397482 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:48.172320 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:48.402607 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:49.407879 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:49.677735 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:50.412857 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:51.187245 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:51.418952 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:52.423878 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:52.692733 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004d50 type:heartbeat will be processed in mread queue
+12/03 03:26:53.427219 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:54.198637 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:26:54.442421 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:55.453417 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:55.703233 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:26:56.463127 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:57.208594 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:26:57.468429 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:58.472302 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:26:58.721136 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:26:59.487510 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:00.227889 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:00.493422 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:01.497670 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:01.732362 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:02.502522 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:03.237380 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:03.507899 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:04.513258 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:04.741980 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:05.517433 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:06.247721 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:06.522679 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:07.527650 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:07.759849 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:08.533271 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:09.267734 0x7fc54cff9700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:09.538929 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:10.543480 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:10.796873 0x7fc54c7f8700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:11.547778 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:12.303470 0x7fc54bff7700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue
+12/03 03:27:12.552377 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:13.557156 0x7fc54b7f6700 DND msg:status will be processed in mpeer queue
+12/03 03:27:13.815052 0x7fc54d7fa700 DND msg:0x7fc514001410, app:0x7fc518004e40 type:heartbeat will be processed in mread queue

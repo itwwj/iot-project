@@ -1,0 +1,8 @@
+run_erl [3303] Wed Dec  2 06:41:00 2020
+Args before exec of shell:
+run_erl [3303] Wed Dec  2 06:41:00 2020
+argv[0] = sh
+run_erl [3303] Wed Dec  2 06:41:00 2020
+argv[1] = -c
+run_erl [3303] Wed Dec  2 06:41:00 2020
+argv[2] = exec "/opt/emqx/bin/emqx" "console"

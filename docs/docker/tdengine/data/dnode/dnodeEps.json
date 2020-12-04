@@ -1,0 +1,8 @@
+{
+  "dnodeNum": 1,
+  "dnodeInfos": [{
+    "dnodeId": 1,
+    "dnodeFqdn": "219922ba82af",
+    "dnodePort": 6030
+  }]
+}

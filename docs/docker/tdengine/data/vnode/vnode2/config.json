@@ -1,0 +1,23 @@
+{
+  "db": "0.log",
+  "cfgVersion": 0,
+  "cacheBlockSize": 1,
+  "totalBlocks": 3,
+  "daysPerFile": 10,
+  "daysToKeep": 30,
+  "daysToKeep1": 30,
+  "daysToKeep2": 30,
+  "minRowsPerFileBlock": 100,
+  "maxRowsPerFileBlock": 4096,
+  "precision": 1,
+  "compression": 2,
+  "walLevel": 1,
+  "fsync": 3000,
+  "replica": 1,
+  "wals": 3,
+  "quorum": 1,
+  "nodeInfos": [{
+    "nodeId": 1,
+    "nodeEp": "219922ba82af:6030"
+  }]
+}
