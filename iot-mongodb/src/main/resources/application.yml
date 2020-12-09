@@ -1,8 +1,9 @@
 spring:
-  data:
-    mongodb:
-      host: 192.168.1.177
-      port: 27017
-      database: iot-test
+  mongodb:
+    address: 192.168.1.177:27017
+    database: iot
+    username: iot
+    password: root
+    connectionsPerHost: 50
 server:
   port: 9102
