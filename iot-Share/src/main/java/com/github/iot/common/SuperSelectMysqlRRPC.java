@@ -3,6 +3,7 @@ package com.github.iot.common;
 import cn.hutool.core.util.CharsetUtil;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.iot.utils.PubMessageUtils;
 import com.github.iot.utils.ThreadUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
@@ -20,8 +21,6 @@ import java.util.List;
 public abstract class SuperSelectMysqlRRPC<T, M extends BaseMapper<T>> implements IMqttMessageListener, MsgEncoder<List<T>> {
     @Autowired
     protected M mapper;
-    @Autowired
-    private MqttClient client;
 
     /**
      * 查询消息的主题topic需先规定好 比如结尾是request 响应时为response
@@ -37,7 +36,7 @@ public abstract class SuperSelectMysqlRRPC<T, M extends BaseMapper<T>> implement
                 Wrapper<T> wrapper = buildWrapper(topic, mqttMessage);
                 List<T> list = mapper.selectList(wrapper);
                 String encoder = encoder(list);
-                client.publish(topic.replace("request", "response"), encoder.getBytes(CharsetUtil.UTF_8), mqttMessage.getQos(), false);
+               PubMessageUtils.pub(topic.replace("request", "response"), encoder.getBytes(CharsetUtil.UTF_8), mqttMessage.getQos(), false);
             } catch (Exception ex) {
                 //解决业务处理错误导致断线问题
                 log.error(ex.toString());

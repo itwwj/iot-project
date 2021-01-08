@@ -17,7 +17,7 @@ spring:
       username: iot
       password: root
 emqx:
-  broker: tcp://192.168.1.15:1883 #broker地址
+  broker: tcp://${iot.host}:1883 #broker地址
   userName: root #授权账号 一定要授权的
   password: root #密码
   cleanSession: true #是否清除会话

@@ -4,6 +4,7 @@ import com.github.iot.entity.Pattern;
 import com.github.iot.entity.SubscriptTopic;
 import com.github.iot.utils.ApplicationContextUtil;
 import com.github.iot.utils.ThreadUtils;
+import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
@@ -17,14 +18,11 @@ import java.util.concurrent.Executors;
  *
  * @author jie
  */
+@Data
 @Slf4j
 public class MqttCallback implements MqttCallbackExtended {
 
-    private List<SubscriptTopic> topicMap;
-
-    public MqttCallback(List<SubscriptTopic> topicMap) {
-        this.topicMap = topicMap;
-    }
+    private final List<SubscriptTopic> topicMap;
 
 
     /**
@@ -79,7 +77,10 @@ public class MqttCallback implements MqttCallbackExtended {
     @SneakyThrows
     @Override
     public void deliveryComplete(IMqttDeliveryToken token) {
-        log.info("向主题：" + token.getTopics().toString() + "发送数据：" + new String(token.getMessage().getPayload()));
+        String[] topics = token.getTopics();
+        for (String topic : topics) {
+            log.info("向主题：" + topic + "发送数据：" + new String(token.getMessage().getPayload()));
+        }
     }
 
     /**
