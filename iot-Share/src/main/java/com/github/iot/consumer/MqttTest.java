@@ -17,6 +17,6 @@ public class MqttTest extends SuperConsumer<String> {
 
     @Override
     public String decoder(MqttMessage msg) {
-        return "";
+        return new String(msg.getPayload());
     }
 }

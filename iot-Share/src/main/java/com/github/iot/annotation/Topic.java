@@ -10,9 +10,9 @@ import java.lang.annotation.*;
  * @author jie
  */
 @Component
+@Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
 public @interface Topic {
 
     /**

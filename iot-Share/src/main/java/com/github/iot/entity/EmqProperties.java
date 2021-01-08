@@ -9,7 +9,6 @@ import static com.github.iot.entity.EmqProperties.PREFIX;
  * @author jie
  */
 @Data
-@Component
 @ConfigurationProperties(prefix = PREFIX)
 public class EmqProperties {
     public static final String PREFIX="emqx";

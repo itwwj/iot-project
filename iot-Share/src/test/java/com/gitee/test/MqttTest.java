@@ -15,7 +15,7 @@ public class MqttTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 500000; i++) {
             String clientId ="device"+i;
             ThreadUtils.executorService.submit(() -> {
                 try {
