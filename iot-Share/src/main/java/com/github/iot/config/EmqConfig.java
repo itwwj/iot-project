@@ -1,4 +1,4 @@
-package com.github.iot.connectconfig;
+package com.github.iot.config;
 
 import com.github.iot.annotation.Topic;
 import com.github.iot.entity.Pattern;
@@ -8,14 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.core.annotation.Order;
 
 import java.net.Inet4Address;
 import java.util.ArrayList;
@@ -43,7 +40,7 @@ public class EmqConfig {
      * @return
      */
     @Bean
-    public MqttConnectOptions getOption(EmqProperties emqProperties) {
+    public MqttConnectOptions option(EmqProperties emqProperties) {
         MqttConnectOptions options = new MqttConnectOptions();
         options.setUserName(emqProperties.getUserName());
         options.setPassword(emqProperties.getPassword().toCharArray());
@@ -59,7 +56,7 @@ public class EmqConfig {
     }
 
     @Bean
-    public MqttClient getClient(MqttConnectOptions options, EmqProperties emqProperties, ApplicationContext applicationContext) throws Exception {
+    public MqttClient mqttClient(MqttConnectOptions options, EmqProperties emqProperties, ApplicationContext applicationContext) throws Exception {
         List<SubscriptTopic> topicMap = new ArrayList<SubscriptTopic>();
         MqttClient client = new MqttClient(emqProperties.getBroker(), Inet4Address.getLocalHost().getHostAddress() + ":" + port, new MemoryPersistence());
         //得到所有使用@Topic注解的类

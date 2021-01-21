@@ -5,9 +5,9 @@ package com.github.iot.common;
  */
 public interface MsgEncoder<T> {
     /**
-     * 数据库消息编码为string
+     * 消息编码为字节数组
      * @param t
      * @return
      */
-    String encoder(T t);
+    byte[] encoder(T t);
 }

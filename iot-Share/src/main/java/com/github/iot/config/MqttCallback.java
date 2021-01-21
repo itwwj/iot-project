@@ -1,17 +1,14 @@
-package com.github.iot.connectconfig;
+package com.github.iot.config;
 
 import com.github.iot.entity.Pattern;
 import com.github.iot.entity.SubscriptTopic;
 import com.github.iot.utils.ApplicationContextUtil;
-import com.github.iot.utils.ThreadUtils;
 import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * mqtt回调类

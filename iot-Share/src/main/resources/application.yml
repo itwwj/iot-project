@@ -1,21 +1,12 @@
 iot:
   host: 192.168.1.177
-
 server:
   port: 9100
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${iot.host}:3306/test
-    username: root
+  redis:
+    host: ${iot.host}
+    port: 6379
     password: root
-  data:
-    mongodb:
-      host: ${iot.host}
-      port: 27017
-      database: iot
-      username: iot
-      password: root
 emqx:
   broker: tcp://${iot.host}:1883 #broker地址
   userName: root #授权账号 一定要授权的
