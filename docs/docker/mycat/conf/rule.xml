@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- - - Licensed under the Apache License, Version 2.0 (the "License"); 
+	- you may not use this file except in compliance with the License. - You 
+	may obtain a copy of the License at - - http://www.apache.org/licenses/LICENSE-2.0 
+	- - Unless required by applicable law or agreed to in writing, software - 
+	distributed under the License is distributed on an "AS IS" BASIS, - WITHOUT 
+	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
+	License for the specific language governing permissions and - limitations 
+	under the License. -->
+<!DOCTYPE mycat:rule SYSTEM "rule.dtd">
+<mycat:rule xmlns:mycat="http://io.mycat/">
+	<tableRule name="rule_user">
+		<rule>
+			<columns>id</columns>
+			<algorithm>func_user_id</algorithm>
+		</rule>
+	</tableRule>
+	<tableRule name="rule_order_form">
+		<rule>
+			<columns>id</columns>
+			<algorithm>func_order_form_id_node,func_order_form_id_table</algorithm>
+		</rule>
+		<rule>
+			<columns>number</columns>
+			<algorithm>func_order_form_number_node,func_order_form_number_table</algorithm>
+		</rule>
+		<rule>
+			<columns>userId,gmtCreated</columns>
+			<algorithm>func_order_form_number_node,func_order_form_number_table</algorithm>
+		</rule>
+	</tableRule>
+	<tableRule name="rule_order_detail">
+		<rule>
+			<columns>id</columns>
+			<algorithm>func_order_detail_id_node,func_order_detail_id_table</algorithm>
+		</rule>
+		<rule>
+			<columns>orderFormId</columns>
+			<algorithm>func_order_form_id_node,func_order_form_id_table</algorithm>
+		</rule>
+	</tableRule>
+	<tableRule name="rule_task">
+		<rule>
+			<columns>id</columns>
+			<algorithm>func_task_id</algorithm>
+		</rule>
+	</tableRule>
+	<function name="func_constant_0" class="io.mycat.route.function.PartitionByConstant">
+		<property name="nodeIndex">0</property>
+	</function>
+	<function name="func_user_id" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">-1</property>
+		<property name="length">2</property>
+		<property name="mapFile">/user-partition.txt</property>
+	</function>
+	<function name="func_order_form_id_node" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">-1</property>
+		<property name="length">2</property>
+		<property name="mapFile">/order-id-node-partition.txt</property>
+	</function>
+	<function name="func_order_form_id_table" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">0</property>
+		<property name="length">4</property>
+		<property name="mapFile">/order-id-table-partition.txt</property>
+	</function>
+	<function name="func_order_form_number_node" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">-1</property>
+		<property name="length">2</property>
+		<property name="mapFile">/order-number-node-partition.txt</property>
+	</function>
+	<function name="func_order_form_number_table" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">0</property>
+		<property name="length">4</property>
+		<property name="mapFile">/order-number-table-partition.txt</property>
+	</function>
+	<function name="func_order_detail_id_node" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">-1</property>
+		<property name="length">2</property>
+		<property name="mapFile">/order-detail-id-node-partition.txt</property>
+	</function>
+	<function name="func_order_detail_id_table" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">0</property>
+		<property name="length">4</property>
+		<property name="mapFile">/order-detail-id-table-partition.txt</property>
+	</function>
+	<function name="func_task_id" class="io.mycat.route.function.PartitionBySubstringRange">
+		<property name="fromIndex">-1</property>
+		<property name="length">2</property>
+		<property name="mapFile">/task-partition.txt</property>
+	</function>
+</mycat:rule>

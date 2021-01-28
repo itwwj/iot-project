@@ -8,4 +8,5 @@ docker run --restart=always --name mongodb \
        -v `pwd`/data/:/data/db  \
        -v `pwd`/conf/:/data/configdb  \
        -v `pwd`/backup/:/data/backup  \
+       -v `pwd`/log/:/data/log  \
        -d mongo --auth

@@ -6,6 +6,7 @@ docker rm mysql
 docker run --name mysql --restart=always \
     -v `pwd`/conf:/etc/mysql/conf.d \
     -v `pwd`/data/:/var/lib/mysql \
+    -v `pwd`/log/:/var/log/mysql \
     -p 3306:3306 \
     -e MYSQL_ROOT_PASSWORD="root" \
     -e TZ=Asia/Shanghai \
