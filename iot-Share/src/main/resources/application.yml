@@ -1,5 +1,10 @@
 iot:
   host: 192.168.1.177
+  api:
+    url: http://${iot.host}:8081/api/v4
+    id: admin
+    password: public
+
 server:
   port: 9100
 spring:

@@ -1,6 +1,7 @@
 package com.github.iot.consumer;
 
 import cn.hutool.core.lang.UUID;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.github.iot.annotation.Topic;
 import com.github.iot.common.SuperConsumer;
@@ -19,8 +20,9 @@ import java.util.concurrent.TimeUnit;
  *
  * @author jie
  */
-@Slf4j
+
 @Data
+@Slf4j
 @Topic(topic = "rpc/+/response/+")
 public class RrpcConsumer extends SuperConsumer<MqttMessage> {
 
@@ -33,6 +35,7 @@ public class RrpcConsumer extends SuperConsumer<MqttMessage> {
         Boolean exists = redisTemplate.hasKey(messageId);
         if (exists) {
             redisTemplate.opsForValue().set(messageId, JSON.toJSONString(entity));
+            redisTemplate.expire(messageId, 20, TimeUnit.SECONDS);
         }
     }
 
@@ -48,7 +51,7 @@ public class RrpcConsumer extends SuperConsumer<MqttMessage> {
         String messageId = UUID.randomUUID().toString();
         topic = topic + "/" + messageId;
         PubMessageUtils.pub(topic, message, qos);
-        redisTemplate.opsForValue().set(messageId, "");
+        redisTemplate.opsForValue().set(messageId, StrUtil.EMPTY);
         redisTemplate.expire(messageId, timeout, TimeUnit.SECONDS);
         while (true) {
             Boolean exists = redisTemplate.hasKey(messageId);
@@ -56,10 +59,10 @@ public class RrpcConsumer extends SuperConsumer<MqttMessage> {
                 throw new Exception("超时");
             }
             String s = redisTemplate.opsForValue().get(messageId);
-            if (!s.equals("")) {
+            if (!StrUtil.isEmptyIfStr(s)) {
                 return JSON.parseObject(s, MqttMessage.class);
             }
-            Thread.sleep(5);
+            Thread.sleep(8);
         }
     }
 }

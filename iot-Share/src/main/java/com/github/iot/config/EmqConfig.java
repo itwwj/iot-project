@@ -7,6 +7,7 @@ import com.github.iot.entity.SubscriptTopic;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -24,6 +25,7 @@ import java.util.Map;
  *
  * @author jie
  */
+
 @Slf4j
 @Configuration
 @EnableConfigurationProperties(EmqProperties.class)
@@ -31,6 +33,8 @@ public class EmqConfig {
 
     @Value("${server.port}")
     private int port;
+    @Autowired
+    private ApplicationContext applicationContext;
 
 
     /**
@@ -56,9 +60,19 @@ public class EmqConfig {
     }
 
     @Bean
-    public MqttClient mqttClient(MqttConnectOptions options, EmqProperties emqProperties, ApplicationContext applicationContext) throws Exception {
-        List<SubscriptTopic> topicMap = new ArrayList<SubscriptTopic>();
+    public MqttClient mqttClient(MqttConnectOptions options, EmqProperties emqProperties) throws Exception {
         MqttClient client = new MqttClient(emqProperties.getBroker(), Inet4Address.getLocalHost().getHostAddress() + ":" + port, new MemoryPersistence());
+        subTopic(client);
+        client.connect(options);
+        return client;
+    }
+
+    /**
+     * 初始化bean时将所有被@Topic标注的类都实例化并获取bean绑定主题和类的映射关系
+     * @param client
+     */
+    private void subTopic(MqttClient client) {
+        List<SubscriptTopic> topicMap = new ArrayList<SubscriptTopic>();
         //得到所有使用@Topic注解的类
         Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(Topic.class);
         for (String className : beansWithAnnotation.keySet()) {
@@ -78,7 +92,5 @@ public class EmqConfig {
             topicMap.add(new SubscriptTopic(topic, subTopic, patten, qos, (IMqttMessageListener) applicationContext.getBean(classByteCode)));
         }
         client.setCallback(new MqttCallback(topicMap));
-        client.connect(options);
-        return client;
     }
 }

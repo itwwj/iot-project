@@ -38,6 +38,7 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${springboot.version}</version>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -47,6 +48,12 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>

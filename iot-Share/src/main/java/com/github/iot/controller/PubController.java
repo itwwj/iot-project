@@ -23,7 +23,7 @@ public class PubController {
 
     @GetMapping("rrpc")
     public String rrpc(String topic, String message) throws Exception {
-        MqttMessage rrpcMessage = PubMessageUtils.rrpcPub(topic, message, 20);
+        MqttMessage rrpcMessage = PubMessageUtils.rrpcPub(topic, message, 8);
         return new String(rrpcMessage.getPayload());
     }
 }
