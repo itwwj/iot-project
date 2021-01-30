@@ -1,4 +1,4 @@
-package com.github.iot.consumer;
+package com.github.iot.rrpc;
 
 import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.StrUtil;

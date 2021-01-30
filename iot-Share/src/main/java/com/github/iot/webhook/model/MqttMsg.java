@@ -1,4 +1,4 @@
-package com.github.iot.entity.webhook;
+package com.github.iot.webhook.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

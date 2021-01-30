@@ -1,6 +1,5 @@
 package com.github.iot.common;
 
-import com.github.iot.utils.ThreadUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.MqttMessage;

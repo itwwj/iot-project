@@ -1,8 +1,6 @@
 package com.gitee.test;
 
-import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.CharsetUtil;
-import com.github.iot.utils.ThreadUtils;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;

@@ -1,10 +1,10 @@
 package com.github.iot.controller;
 
 import com.github.iot.api.BannedApi;
-import com.github.iot.entity.rest.request.Sbanned;
-import com.github.iot.entity.rest.response.Gbanned;
-import com.github.iot.entity.rest.response.R;
-import com.github.iot.entity.rest.response.Result;
+import com.github.iot.api.rest.banned.Sbanned;
+import com.github.iot.api.rest.banned.Gbanned;
+import com.github.iot.api.rest.banned.R;
+import com.github.iot.api.rest.banned.Result;
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,16 +19,16 @@ public class BannedController {
 
     @GetMapping("/getBanned")
     public Gbanned getBanned(int page,int size) {
-        return api.getBanneds(page, size);
+        return api.select(page, size);
     }
 
     @PostMapping("/setBanned")
     public R setBanned(@RequestBody Sbanned sbanned) {
-        return api.setBanned(sbanned);
+        return api.instert(sbanned);
     }
 
     @DeleteMapping("/delBanned/{as}/{who}")
     public Result delBanned(@PathVariable("as") String as, @PathVariable("who") String who) {
-        return api.delBanned(as, who);
+        return api.del(as, who);
     }
 }

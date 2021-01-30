@@ -1,8 +1,8 @@
-package com.github.iot.controller;
+package com.github.iot.webhook;
 
-import com.github.iot.entity.webhook.MqttMsg;
-import com.github.iot.entity.webhook.WebHookConnect;
-import com.github.iot.entity.webhook.WebHookDisconnect;
+import com.github.iot.webhook.model.MqttMsg;
+import com.github.iot.webhook.model.WebHookConnect;
+import com.github.iot.webhook.model.WebHookDisconnect;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

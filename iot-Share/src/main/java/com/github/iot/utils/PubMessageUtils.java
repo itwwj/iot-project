@@ -1,7 +1,7 @@
 package com.github.iot.utils;
 
 import cn.hutool.core.util.CharsetUtil;
-import com.github.iot.consumer.RrpcConsumer;
+import com.github.iot.rrpc.RrpcConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;

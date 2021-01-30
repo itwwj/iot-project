@@ -1,10 +1,10 @@
 iot:
   host: 192.168.1.177
   api:
-    url: http://${iot.host}:8081/api/v4
-    id: admin
-    password: public
-
+    url: http://${iot.host}:8081/api/v4 # api默认地址 这个不要动 除非修改配置文件
+    # admin public为默认认证的账号密码 生产环境建议修改  配置文件emqx_management.conf
+    username: admin #认证账号 可以在Dashboard-->通用-->应用  新建app  AppId
+    password: public #认证密码 可以在Dashboard-->通用-->应用  新建app  App秘钥
 server:
   port: 9100
 spring:

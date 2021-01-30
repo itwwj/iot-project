@@ -1,4 +1,4 @@
-package com.github.iot.entity.rest.response;
+package com.github.iot.api.rest;
 
 import lombok.Data;
 
@@ -6,6 +6,6 @@ import lombok.Data;
  * @author jie
  */
 @Data
-public class BaseEntity {
+public class BaseResoult {
     private Integer code;
 }

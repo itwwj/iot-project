@@ -1,28 +1,27 @@
 package com.github.iot.api;
 
-import cn.hutool.http.Header;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
-import com.github.iot.entity.rest.request.Sbanned;
-import com.github.iot.entity.rest.response.Gbanned;
-import com.github.iot.entity.rest.response.R;
-import com.github.iot.entity.rest.response.Result;
+import com.github.iot.api.rest.banned.Sbanned;
+import com.github.iot.api.rest.banned.Gbanned;
+import com.github.iot.api.rest.banned.R;
+import com.github.iot.api.rest.banned.Result;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
 
 /**
+ * 黑名单api
  * @author jie
  */
 @Component
-public class BannedApi {
+public class BannedApi extends BaseApi {
+
     @Value("${iot.api.url}")
-    private String url;
-    @Value("${iot.api.id}")
-    private String id;
-    @Value("${iot.api.password}")
-    private String password;
+    protected String url;
+
+    private static final String SUFFIX = "/banned";
 
     /**
      * 获取黑名单列表
@@ -31,10 +30,9 @@ public class BannedApi {
      * @param size
      * @return
      */
-    public Gbanned getBanneds(int page, int size) {
-        String body = HttpRequest.get(url + "/banned" + param(page, size))
-                .header(Header.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .basicAuth(id, password).execute().body();
+    public Gbanned select(int page, int size) {
+        HttpRequest httpRequest = HttpRequest.get(joint(url , SUFFIX , param(page, size)));
+        String body = getBody(httpRequest);
         return JSON.parseObject(body, Gbanned.class);
     }
 
@@ -44,34 +42,23 @@ public class BannedApi {
      * @param sbanned
      * @return
      */
-    public R setBanned(Sbanned sbanned) {
-        String body = HttpRequest.post(url + "/banned")
-                .header(Header.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .body(JSON.toJSONString(sbanned))
-                .basicAuth(id, password).execute().body();
+    public R instert(Sbanned sbanned) {
+        HttpRequest httpRequest = HttpRequest.post(joint(url , SUFFIX))
+                .body(JSON.toJSONString(sbanned));
+        String body = getBody(httpRequest);
         return JSON.parseObject(body, R.class);
     }
 
     /**
      * 删除黑名单
+     *
      * @param who
      * @param as
      * @return
      */
-    public Result delBanned(String as, String who) {
-        String body = HttpRequest.delete(url + "/banned/" + as + "/" + who)
-                .header(Header.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .basicAuth(id, password).execute().body();
+    public Result del(String as, String who) {
+        HttpRequest httpRequest = HttpRequest.delete(joint(url , SUFFIX , StrUtil.SLASH , as , StrUtil.SLASH , who));
+        String body = getBody(httpRequest);
         return JSON.parseObject(body, Result.class);
-    }
-
-    private String param(int page, int size) {
-        if (page < 1) {
-            page = 1;
-        }
-        if (size < 1 || size > 10000) {
-            size = 10;
-        }
-        return "?_page=" + page + "&_limit=" + size;
     }
 }

@@ -1,4 +1,4 @@
-package com.github.iot.entity.rest.request;
+package com.github.iot.api.rest.banned;
 
 import lombok.Builder;
 import lombok.Data;

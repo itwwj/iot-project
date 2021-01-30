@@ -1,4 +1,4 @@
-package com.github.iot.redis;
+package com.github.iot.rrpc.redis;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.context.annotation.Bean;

@@ -1,12 +1,13 @@
-package com.github.iot.entity.rest.response;
+package com.github.iot.api.rest.banned;
 
+import com.github.iot.api.rest.BaseResoult;
 import lombok.Data;
 
 /**
  * @author jie
  */
 @Data
-public class Gbanned extends BaseEntity {
+public class Gbanned extends BaseResoult {
 
     /**
      * 由对象构成的数组，对象中的字段与 POST 方法中的 Request Body 相同
