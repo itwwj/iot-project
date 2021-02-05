@@ -9,7 +9,8 @@ import org.springframework.http.MediaType;
  * @author jie
  */
 public abstract class BaseApi {
-
+    @Value("${iot.api.url}")
+    protected String url;
     @Value("${iot.api.username}")
     protected String username;
     @Value("${iot.api.password}")
@@ -17,6 +18,7 @@ public abstract class BaseApi {
 
     /**
      * 分页参数封装到url
+     *
      * @param page
      * @param size
      * @return
@@ -33,6 +35,7 @@ public abstract class BaseApi {
 
     /**
      * 发送http请求获取body
+     *
      * @param httpRequest
      * @return
      */
@@ -43,11 +46,12 @@ public abstract class BaseApi {
 
     /**
      * url拼接
+     *
      * @param args
      * @return
      */
-    protected String joint(String... args){
-        StringBuilder builder=new StringBuilder();
+    protected String joint(String... args) {
+        StringBuilder builder = new StringBuilder();
         for (String arg : args) {
             builder.append(arg);
         }

@@ -1,6 +1,5 @@
-package com.github.iot.api.rest.client;
+package com.github.iot.api.restentity.client;
 
-import com.github.iot.api.rest.BaseResoult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClientOne extends BaseResoult {
-    private Client[] data;
+public class Meta {
+    private int page;
+    private int limit;
+    private int count;
+    private int hasnext;
 }

@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class WebHookDisconnect {
+public class WhDisconnect {
     /**
      * 终端连接断开原因
      */

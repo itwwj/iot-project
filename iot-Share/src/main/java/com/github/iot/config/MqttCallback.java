@@ -76,7 +76,7 @@ public class MqttCallback implements MqttCallbackExtended {
     public void deliveryComplete(IMqttDeliveryToken token) {
         String[] topics = token.getTopics();
         for (String topic : topics) {
-            log.info("向主题：" + topic + "发送数据：" + new String(token.getMessage().getPayload()));
+            log.info("向主题：" + topic + "发送数据");
         }
     }
 

@@ -20,4 +20,3 @@ emqx:
   reconnect: true #是否断线重连
   timeout: 20 #连接超时时间
   keepAlive: 10 #心跳间隔
-

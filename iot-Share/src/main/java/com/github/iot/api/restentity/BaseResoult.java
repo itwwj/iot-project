@@ -1,4 +1,4 @@
-package com.github.iot.api.rest;
+package com.github.iot.api.restentity;
 
 import lombok.Data;
 

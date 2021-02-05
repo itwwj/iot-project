@@ -3,9 +3,9 @@ package com.github.iot.api;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
-import com.github.iot.api.rest.BaseResoult;
-import com.github.iot.api.rest.rules.RuleParameters;
-import com.github.iot.api.rest.rules.RuleResponse;
+import com.github.iot.api.restentity.BaseResoult;
+import com.github.iot.api.restentity.rules.RuleParameters;
+import com.github.iot.api.restentity.rules.RuleResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +14,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class RulesApi extends BaseApi {
-
-    @Value("${iot.api.url}")
-    protected String url;
 
     private static final String SUFFIX = "/rules";
 

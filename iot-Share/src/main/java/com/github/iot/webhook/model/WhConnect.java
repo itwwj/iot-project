@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class WebHookConnect {
+public class WhConnect {
     /**
      * 消息目的 Client ID
      */

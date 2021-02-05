@@ -1,4 +1,4 @@
-package com.github.iot.api.rest.banned;
+package com.github.iot.api.restentity.banned;
 
 import lombok.Builder;
 import lombok.Data;

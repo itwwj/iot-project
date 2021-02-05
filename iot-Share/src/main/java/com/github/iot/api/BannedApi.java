@@ -3,10 +3,10 @@ package com.github.iot.api;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
-import com.github.iot.api.rest.banned.Sbanned;
-import com.github.iot.api.rest.banned.Gbanned;
-import com.github.iot.api.rest.banned.R;
-import com.github.iot.api.rest.banned.Result;
+import com.github.iot.api.restentity.banned.Sbanned;
+import com.github.iot.api.restentity.banned.Gbanned;
+import com.github.iot.api.restentity.banned.R;
+import com.github.iot.api.restentity.banned.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +17,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class BannedApi extends BaseApi {
-
-    @Value("${iot.api.url}")
-    protected String url;
 
     private static final String SUFFIX = "/banned";
 

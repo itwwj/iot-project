@@ -1,6 +1,6 @@
-package com.github.iot.api.rest.rules;
+package com.github.iot.api.restentity.rules;
 
-import com.github.iot.api.rest.BaseResoult;
+import com.github.iot.api.restentity.BaseResoult;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

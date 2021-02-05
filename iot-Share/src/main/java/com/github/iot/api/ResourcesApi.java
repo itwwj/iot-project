@@ -3,18 +3,15 @@ package com.github.iot.api;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
-import com.github.iot.api.rest.BaseResoult;
-import com.github.iot.api.rest.resources.ResourceParameters;
-import com.github.iot.api.rest.resources.ResourceResponse;
+import com.github.iot.api.restentity.BaseResoult;
+import com.github.iot.api.restentity.resources.ResourceParameters;
+import com.github.iot.api.restentity.resources.ResourceResponse;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
  * @author jie
  */
 public class ResourcesApi extends BaseApi {
-
-    @Value("${iot.api.url}")
-    protected String url;
 
     private static final String SUFFIX = "/resources";
 

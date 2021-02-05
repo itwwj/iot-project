@@ -1,8 +1,8 @@
 package com.github.iot.controller;
 
 import com.github.iot.api.PublishApi;
-import com.github.iot.api.rest.BaseResoult;
-import com.github.iot.api.rest.pub.Publish;
+import com.github.iot.api.restentity.BaseResoult;
+import com.github.iot.api.restentity.pub.Publish;
 import com.github.iot.utils.PubMessageUtils;
 import lombok.Data;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -34,9 +34,18 @@ public class PubController {
     }
 
     @PostMapping("pub")
-    public BaseEntity pub(@RequestBody Publish publish) throws Exception {
+    public BaseResoult pub(@RequestBody Publish publish) throws Exception {
         return publishApi.pub(publish);
 
     }
 
+    @GetMapping("message")
+    public String pub(Integer qos, String topic, String message) throws Exception {
+        boolean pub = PubMessageUtils.pub(topic, message, qos);
+        if (pub) {
+            return "ok";
+        } else {
+            return "error";
+        }
+    }
 }

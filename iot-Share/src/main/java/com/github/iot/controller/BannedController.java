@@ -1,10 +1,10 @@
 package com.github.iot.controller;
 
 import com.github.iot.api.BannedApi;
-import com.github.iot.api.rest.banned.Sbanned;
-import com.github.iot.api.rest.banned.Gbanned;
-import com.github.iot.api.rest.banned.R;
-import com.github.iot.api.rest.banned.Result;
+import com.github.iot.api.restentity.banned.Sbanned;
+import com.github.iot.api.restentity.banned.Gbanned;
+import com.github.iot.api.restentity.banned.R;
+import com.github.iot.api.restentity.banned.Result;
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 

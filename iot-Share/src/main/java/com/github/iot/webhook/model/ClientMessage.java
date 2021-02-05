@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MqttMsg {
+public class ClientMessage {
     /**
      * 用户名
      */

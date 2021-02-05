@@ -1,4 +1,4 @@
-package com.github.iot.api.rest.client;
+package com.github.iot.api.restentity.client;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

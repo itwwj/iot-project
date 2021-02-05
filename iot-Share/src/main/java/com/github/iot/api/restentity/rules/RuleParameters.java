@@ -1,4 +1,4 @@
-package com.github.iot.api.rest.rules;
+package com.github.iot.api.restentity.rules;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
