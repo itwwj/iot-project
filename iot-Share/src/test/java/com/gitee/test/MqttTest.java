@@ -9,7 +9,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  * @author jie
  */
 public class MqttTest {
-    static final String broker = "tcp://60.205.246.75:1883";
+    static final String broker = "tcp://192.168.1.177:1883";
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -29,7 +29,7 @@ public class MqttTest {
             //    System.out.println(clientId + "结束发送");
             }
             System.out.println("连接第"+i);
-            Thread.sleep(10);
+            Thread.sleep(1);
         }
     }
 

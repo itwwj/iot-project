@@ -12,6 +12,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.LockSupport;
 
 
 /**
@@ -23,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 @Data
 @Slf4j
-@Topic(topic = "rpc/+/response/+")
+@Topic(topic = "rpc/+/response/+",qos = 2)
 public class RrpcConsumer extends SuperConsumer<MqttMessage> {
 
     private final StringRedisTemplate redisTemplate;

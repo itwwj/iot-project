@@ -47,7 +47,11 @@ public class PubMessageUtils {
 
     public static MqttMessage rrpcPub(String topic, String msg, long timeout) throws Exception {
         RrpcConsumer rrpc = ApplicationContextUtil.getBean(RrpcConsumer.class);
-        return rrpc.rrpcPub(topic, 0, msg.getBytes(CharsetUtil.UTF_8), timeout);
+        return rrpc.rrpcPub(topic, 2, msg.getBytes(CharsetUtil.UTF_8), timeout);
+    }
+    public static MqttMessage rrpcPub(String topic, String msg,int qos, long timeout) throws Exception {
+        RrpcConsumer rrpc = ApplicationContextUtil.getBean(RrpcConsumer.class);
+        return rrpc.rrpcPub(topic, qos, msg.getBytes(CharsetUtil.UTF_8), timeout);
     }
 
     public static MqttMessage rrpcPub(String topic, int qos, String msg, long timeout) throws Exception {
@@ -57,7 +61,7 @@ public class PubMessageUtils {
 
     public static MqttMessage rrpcPub(String topic, byte[] msg, long timeout) throws Exception {
         RrpcConsumer rrpc = ApplicationContextUtil.getBean(RrpcConsumer.class);
-        return rrpc.rrpcPub(topic, 0, msg, timeout);
+        return rrpc.rrpcPub(topic, 2, msg, timeout);
     }
 
     public static MqttMessage rrpcPub(String topic, int qos, byte[] msg, long timeout) throws Exception {

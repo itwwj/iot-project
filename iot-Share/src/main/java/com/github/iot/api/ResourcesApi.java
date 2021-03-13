@@ -7,10 +7,12 @@ import com.github.iot.api.restentity.BaseResoult;
 import com.github.iot.api.restentity.resources.ResourceParameters;
 import com.github.iot.api.restentity.resources.ResourceResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * @author jie
  */
+@Component
 public class ResourcesApi extends BaseApi {
 
     private static final String SUFFIX = "/resources";

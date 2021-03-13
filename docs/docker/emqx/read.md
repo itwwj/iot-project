@@ -3,9 +3,6 @@
 chmod u+x *.sh
 sed -i "s/\r//" start.sh
 
-
-
-
 mysql容器查看ip:
 docker inspect --format='{{.NetworkSettings.IPAddress}}' mysql
 

@@ -17,4 +17,3 @@ docker run -d --name emqx --restart=always  \
       -v /etc/localtime:/etc/localtime \
       --privileged=true \
       -u root emqx/emqx:4.2.3
-
