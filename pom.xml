@@ -14,6 +14,7 @@
         <module>iot-mongodb</module>
         <module>iot-modbus</module>
         <module>emqx-java-sdk</module>
+        <module>mqtt-test</module>
     </modules>
 
     <parent>

@@ -1,5 +1,5 @@
 iot:
-  host: 192.168.1.177
+  host: 123.57.241.35
   api:
     url: http://${iot.host}:8081/api/v4 # api默认地址 这个不要动 除非修改配置文件
     # admin public为默认认证的账号密码 生产环境建议修改  配置文件emqx_management.conf

@@ -13,7 +13,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public abstract class SuperConsumer<T> implements IMqttMessageListener, MsgDecoder<T> {
     @Override
     public void messageArrived(String topic, MqttMessage mqttMessage) {
-        log.info("\r\n 收到主题 :\r\n" + topic + "  qos="+mqttMessage.getQos()+" 的消息:\r\n" + new String(mqttMessage.getPayload()));
+        //log.info("\r\n 收到主题 :\r\n" + topic + "  qos="+mqttMessage.getQos()+" 的消息:\r\n" + new String(mqttMessage.getPayload()));
         ThreadUtils.executorService.submit(() -> {
             try {
                 T decoder = decoder(mqttMessage);
