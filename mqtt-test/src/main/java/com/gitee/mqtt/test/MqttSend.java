@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @SpringBootApplication
 public class MqttSend {
-    static final String broker = "tcp://123.57.241.35:1883";
+    static final String broker = "tcp://iot-server:1883";
     public static AtomicLong valueCount = new AtomicLong(0);
 
     public static void main(String[] args) throws MqttException, UnsupportedEncodingException, InterruptedException {
