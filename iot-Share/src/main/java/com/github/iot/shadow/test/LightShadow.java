@@ -12,7 +12,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
  *
  * @author jie
  */
-@Topic(topic = "shadow/update/loght/+", qos = 2)
+//@Topic(topic = "shadow/update/loght/+", qos = 2)
 public class LightShadow extends SupperRpcConsumer<BaseShadow<Light>, BaseShadow<Light>> {
 
     @Override

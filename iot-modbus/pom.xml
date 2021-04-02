@@ -10,45 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>iot-modbus</artifactId>
-    <properties>
-        <modbus.version>3.0.3</modbus.version>
-        <springboot.version>2.3.6.RELEASE</springboot.version>
-    </properties>
     <dependencies>
-
         <!-- Modbus -->
-<!--        <dependency>
+        <dependency>
             <groupId>com.infiniteautomation</groupId>
             <artifactId>modbus4j</artifactId>
-            <version>${modbus.version}</version>
-        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${springboot.version}</version>
-        </dependency>
-        <!-- test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>${springboot.version}</version>
-            <scope>test</scope>
+            <version>3.0.3</version>
         </dependency>
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.0</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.21</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>${springboot.version}</version>
-        </dependency>
+
     </dependencies>
 
 </project>

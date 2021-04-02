@@ -14,7 +14,7 @@ import static com.github.iot.shadow.CacheShadow.deviceShadow;
  * 设备拉取影子状态
  * @author jie
  */
-@Topic(topic = "shadow/request/loght/+", qos = 2)
+//@Topic(topic = "shadow/request/loght/+", qos = 2)
 public class PullStatus extends SupperRpcConsumer<Light, BaseShadow<Light>> {
     @Override
     protected BaseShadow<Light> msgHandler(String topic, Light entity) {

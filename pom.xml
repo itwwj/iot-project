@@ -15,6 +15,8 @@
         <module>iot-modbus</module>
         <module>emqx-java-sdk</module>
         <module>mqtt-test</module>
+        <module>mqtt-integration</module>
+        <module>iot-modbus-tcp</module>
     </modules>
 
     <parent>

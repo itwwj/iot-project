@@ -27,16 +27,9 @@ public class MqttCallback implements MqttCallbackExtended {
      *
      * @param throwable 异常
      */
-    @SneakyThrows
     @Override
     public void connectionLost(Throwable throwable) {
-        MqttClient client = ApplicationContextUtil.getBean(MqttClient.class);
-        MqttConnectOptions option = ApplicationContextUtil.getBean(MqttConnectOptions.class);
-        while (!client.isConnected()) {
-            log.info("emqx重新连接....................................................");
-            client.connect(option);
-            Thread.sleep(1000);
-        }
+        log.error("The client disconnects");
     }
 
     /**
@@ -50,7 +43,6 @@ public class MqttCallback implements MqttCallbackExtended {
         for (SubscriptTopic subscriptTopic : topicMap) {
             if (subscriptTopic.getPattern() != Pattern.NONE && isMatched(subscriptTopic.getTopic(), topic)) {
                 subscriptTopic.getMessageListener().messageArrived(topic, message);
-                break;
             }
         }
     }

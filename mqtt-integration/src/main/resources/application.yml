@@ -1,0 +1,20 @@
+server:
+  port: 9612
+
+mqtt:
+  username: root
+  password: root
+  url: tcp://iot-server:1883
+  qos:
+    - 0
+  topics:
+    - device/#
+  client:
+    id: mqtt-client-${server.port}
+  default:
+    topic: device/iot
+    qos: 1
+    receive:
+      enable: true
+  keep-alive: 5
+  completion-timeout: 3000

@@ -24,7 +24,7 @@ import java.util.concurrent.locks.LockSupport;
 
 @Data
 @Slf4j
-@Topic(topic = "rpc/+/response/+",qos = 2)
+//@Topic(topic = "rpc/+/response/+",qos = 2)
 public class RrpcConsumer extends SuperConsumer<MqttMessage> {
 
     private final StringRedisTemplate redisTemplate;
